@@ -774,6 +774,9 @@ img {
 }
 
 .welcome-section__content {
+    position: relative;
+    z-index: 1;
+
     width: 100%;
     max-width: 360px;
 
@@ -811,35 +814,28 @@ img {
 }
 
 .welcome-section__couple-art {
+    width: 100%;
+
     margin:
-        48px auto 42px;
-
-    display: flex;
-    justify-content: center;
-}
-
-.welcome-section__couple-placeholder {
-    width: 220px;
-    height: 220px;
+        36px auto 34px;
 
     display: flex;
     align-items: center;
     justify-content: center;
-
-    border:
-        1px solid rgba(246, 241, 231, 0.45);
-
-    border-radius: 50%;
-
-    font-family: var(--font-display);
-
-    font-size: 15px;
-
-    letter-spacing: 1px;
-
-    color:
-        rgba(246, 241, 231, 0.75);
 }
+
+.welcome-section__couple-image {
+    display: block;
+
+    width: min(300px, 85vw);
+    height: auto;
+
+    object-fit: contain;
+
+    user-select: none;
+    pointer-events: none;
+}
+
 
 .welcome-section__message {
     margin: 0 auto;
@@ -895,6 +891,39 @@ img {
     font-style: normal;
 
     font-size: 18px;
+}
+
+/* ============================
+   WELCOME BOTANICAL DECOR
+============================ */
+
+.welcome-section__botanical {
+    position: absolute;
+
+    z-index: 0;
+
+    pointer-events: none;
+    user-select: none;
+
+    opacity: 1.42;
+}
+
+.welcome-section__botanical--top-left {
+    top: -36px;
+    left: -70px;
+
+    width: 260px;
+
+    transform: rotate(-4deg);
+}
+
+.welcome-section__botanical--bottom-right {
+    right: -54px;
+    bottom: -13px;
+
+    width: 280px;
+
+    transform: rotate(6deg);
 }
 
 /* ============================
@@ -1593,6 +1622,24 @@ img {
     .save-date-scene__envelope {
         width: min(280px, 84vw);
         height: 165px;
+    }
+
+    .welcome-section__couple-image {
+        width: min(285px, 82vw);
+    }
+
+    .welcome-section__botanical--top-left {
+        top: -40px;
+        left: -85px;
+
+        width: 220px;
+    }
+
+    .welcome-section__botanical--bottom-right {
+        right: -90px;
+        bottom: -55px;
+
+        width: 235px;
     }
 
 }
