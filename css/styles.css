@@ -1,0 +1,686 @@
+@import url("./variables.css");
+@import url("./animations.css");
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+
+    font-family: var(--font-body);
+
+    color: var(--color-charcoal);
+
+    background:
+        linear-gradient(180deg,
+            var(--color-ivory-soft),
+            var(--color-ivory));
+}
+
+button,
+a {
+    font: inherit;
+}
+
+button {
+    border: 0;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+/* ============================
+   PAPER / PAGE
+============================ */
+
+.wedding-page {
+    position: relative;
+
+    width: 100%;
+    max-width: var(--page-max-width);
+
+    margin: 0 auto;
+
+    min-height: 100vh;
+
+    background:
+        radial-gradient(circle at 20% 10%,
+            rgba(255, 255, 255, 0.6),
+            transparent 35%),
+        radial-gradient(circle at 80% 90%,
+            rgba(181, 150, 89, 0.08),
+            transparent 30%),
+        var(--color-paper);
+
+    box-shadow:
+        0 0 60px rgba(0, 0, 0, 0.06);
+}
+
+/* subtle paper texture */
+.wedding-page::before {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    pointer-events: none;
+
+    opacity: 0.25;
+
+    background-image:
+        repeating-linear-gradient(0deg,
+            rgba(70, 70, 60, 0.02),
+            rgba(70, 70, 60, 0.02) 1px,
+            transparent 1px,
+            transparent 3px);
+}
+
+/* ============================
+   HERO
+============================ */
+
+.hero {
+    position: relative;
+
+    min-height: 100vh;
+
+    padding:
+        46px var(--section-padding-x) 34px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+
+    overflow: hidden;
+
+    isolation: isolate;
+}
+
+/* ============================
+   BOTANICAL BRANCHES
+============================ */
+
+.hero__branch {
+    position: absolute;
+
+    width: 145px;
+    height: auto;
+    aspect-ratio: 180 / 320;
+
+    z-index: 1;
+
+    opacity: 0.60;
+
+    pointer-events: none;
+}
+
+.hero__branch--left {
+    top: -45px;
+    left: -65px;
+
+    transform: rotate(-20deg);
+}
+
+.hero__branch--right {
+    right: -65px;
+    bottom: -50px;
+
+    transform: rotate(18deg);
+}
+
+/* ============================
+   HEADER
+============================ */
+
+.hero__header {
+    width: 100%;
+
+    text-align: center;
+
+    position: relative;
+
+    z-index: 2;
+}
+
+/* ============================
+   MONOGRAM
+============================ */
+
+.hero__monogram {
+    position: relative;
+
+    width: 126px;
+    height: 126px;
+
+    margin:
+        0 auto 26px;
+
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border:
+        1px solid rgba(181, 150, 89, 0.75);
+
+    background:
+        radial-gradient(circle,
+            rgba(244, 238, 228, 0.96) 0%,
+            rgba(244, 238, 228, 0.82) 65%,
+            rgba(244, 238, 228, 0.20) 100%);
+
+    box-shadow:
+        inset 0 0 0 5px rgba(181, 150, 89, 0.08);
+}
+
+.hero__monogram::before,
+.hero__monogram::after {
+    content: "";
+
+    position: absolute;
+
+    width: 30px;
+    height: 1px;
+
+    top: 50%;
+
+    background:
+        linear-gradient(90deg,
+            transparent,
+            var(--color-gold));
+}
+
+.hero__monogram::before {
+    left: -20px;
+}
+
+.hero__monogram::after {
+    right: -20px;
+
+    transform: rotate(180deg);
+}
+
+.hero__monogram-inner {
+    position: relative;
+
+    font-family: var(--font-display);
+
+    font-size: 37px;
+
+    font-weight: 500;
+
+    letter-spacing: 1px;
+
+    color: var(--color-gold-dark);
+}
+
+.hero__monogram-inner::before {
+    content: "";
+
+    position: absolute;
+
+    width: 76px;
+    height: 76px;
+
+    left: 50%;
+    top: 50%;
+
+    transform:
+        translate(-50%, -50%) rotate(45deg);
+
+    border:
+        1px solid rgba(181, 150, 89, 0.30);
+}
+
+/* ============================
+   EYEBROW
+============================ */
+
+.hero__eyebrow {
+    margin:
+        0 0 8px;
+
+    font-family: var(--font-body);
+
+    font-size: 11px;
+
+    font-weight: 500;
+
+    text-transform: uppercase;
+
+    letter-spacing: 5px;
+
+    color: var(--color-olive);
+}
+
+/* ============================
+   DIVIDER
+============================ */
+
+.hero__divider {
+    margin:
+        9px auto 8px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 9px;
+
+    color: var(--color-gold);
+
+    width: 130px;
+}
+
+.hero__divider span {
+    height: 1px;
+
+    flex: 1;
+
+    background:
+        linear-gradient(90deg,
+            transparent,
+            var(--color-gold));
+}
+
+.hero__divider span:last-child {
+    transform: rotate(180deg);
+}
+
+.hero__divider i {
+    font-size: 7px;
+
+    font-style: normal;
+}
+
+/* ============================
+   NAMES
+============================ */
+
+.hero__names {
+    margin: 0;
+
+    font-family: var(--font-script);
+
+    font-size: 58px;
+
+    font-weight: 400;
+
+    line-height: 1;
+
+    color: var(--color-olive-dark);
+
+    text-shadow:
+        0 1px 0 rgba(255, 255, 255, 0.35);
+}
+
+/* ============================
+   DATE
+============================ */
+
+.hero__date {
+    position: relative;
+
+    display: inline-block;
+
+    margin:
+        20px 0 0;
+
+    padding:
+        0 10px;
+
+    font-family: var(--font-display);
+
+    font-size: 15px;
+
+    font-weight: 500;
+
+    letter-spacing: 3.4px;
+
+    color: var(--color-charcoal);
+}
+
+/* ============================
+   ENVELOPE
+============================ */
+
+.envelope {
+    position: relative;
+
+    z-index: 2;
+
+    margin:
+        30px 0 18px;
+
+    padding: 0;
+
+    background: transparent;
+
+    cursor: pointer;
+
+    perspective: 900px;
+}
+
+.envelope__body {
+    position: relative;
+
+    display: block;
+
+    width: 306px;
+    height: 194px;
+
+    border-radius:
+        6px 6px 13px 13px;
+
+    background:
+        linear-gradient(180deg,
+            #4f5a48 0%,
+            #3a4336 100%);
+
+    box-shadow:
+        var(--shadow-envelope);
+
+    animation:
+        floating 5s ease-in-out infinite;
+}
+
+/* subtle paper fibers */
+.envelope__body::before {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    border-radius: inherit;
+
+    background:
+        repeating-linear-gradient(90deg,
+            rgba(255, 255, 255, 0.018),
+            rgba(255, 255, 255, 0.018) 1px,
+            transparent 1px,
+            transparent 3px);
+
+    pointer-events: none;
+}
+
+/* ============================
+   ENVELOPE FLAP
+============================ */
+
+.envelope__flap {
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    z-index: 2;
+
+    width: 100%;
+    height: 122px;
+
+    clip-path:
+        polygon(0 0,
+            100% 0,
+            50% 100%);
+
+    background:
+        linear-gradient(180deg,
+            #606c57 0%,
+            #4c5746 100%);
+
+    filter:
+        drop-shadow(0 3px 3px rgba(0, 0, 0, 0.12));
+
+    transform-origin: top center;
+
+    backface-visibility: hidden;
+}
+
+/* ============================
+   ENVELOPE SIDES
+============================ */
+
+.envelope__body::after {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    bottom: 0;
+
+    width: 100%;
+    height: 140px;
+
+    clip-path:
+        polygon(0 15%,
+            50% 65%,
+            100% 15%,
+            100% 100%,
+            0 100%);
+
+    background:
+        linear-gradient(180deg,
+            #465040,
+            #394236);
+
+    pointer-events: none;
+}
+
+/* ============================
+   WAX SEAL
+============================ */
+
+.envelope__seal {
+    position: absolute;
+
+    left: 50%;
+    top: 53%;
+
+    z-index: 5;
+
+    width: 82px;
+    height: 82px;
+
+    transform:
+        translate(-50%, -5%);
+
+    border-radius:
+        48% 52% 45% 55% / 52% 46% 54% 48%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-family:
+        var(--font-display);
+
+    font-size: 26px;
+
+    font-weight: 600;
+
+    letter-spacing: 0.5px;
+
+    color: #5d451d;
+
+    background:
+        radial-gradient(circle at 35% 30%,
+            #eddca8 0%,
+            #c2a264 45%,
+            #9a7435 72%,
+            #765521 100%);
+
+    box-shadow:
+        var(--shadow-seal),
+        inset 1px 1px 4px rgba(255, 255, 255, 0.35),
+        inset -2px -2px 4px rgba(87, 57, 20, 0.28);
+
+    animation:
+        pulseSeal 2.8s ease-in-out infinite;
+}
+
+/* inner wax ring */
+.envelope__seal::before {
+    content: "";
+
+    position: absolute;
+
+    inset: 8px;
+
+    border-radius: 50%;
+
+    border:
+        1px solid rgba(92, 67, 28, 0.35);
+
+    box-shadow:
+        inset 0 0 4px rgba(255, 255, 255, 0.25);
+}
+
+/* ============================
+   CALL TO ACTION
+============================ */
+
+.hero__action {
+    position: relative;
+
+    z-index: 2;
+
+    text-align: center;
+}
+
+.hero__click {
+    display: block;
+
+    font-family:
+        var(--font-body);
+
+    font-size: 12px;
+
+    font-weight: 500;
+
+    text-transform: uppercase;
+
+    letter-spacing: 2.4px;
+
+    color:
+        var(--color-charcoal);
+}
+
+.hero__subtitle {
+    display: block;
+
+    margin-top: 4px;
+
+    font-family:
+        var(--font-script);
+
+    font-size: 31px;
+
+    line-height: 1;
+
+    color:
+        var(--color-gold-dark);
+}
+
+/* ============================
+   INTERACTION STATES
+============================ */
+
+.envelope:hover .envelope__seal {
+    filter:
+        brightness(1.06);
+}
+
+.envelope:focus-visible {
+    outline:
+        2px solid var(--color-gold);
+
+    outline-offset:
+        8px;
+
+    border-radius:
+        var(--radius-md);
+}
+
+/* ============================
+   MOBILE
+============================ */
+
+@media (max-width: 430px) {
+    .hero {
+        padding-top: 32px;
+    }
+
+    .hero__monogram {
+        width: 104px;
+        height: 104px;
+
+        margin-bottom: 20px;
+    }
+
+    .hero__monogram-inner {
+        font-size: 31px;
+    }
+
+    .hero__monogram-inner::before {
+        width: 62px;
+        height: 62px;
+    }
+
+    .hero__names {
+        font-size: 50px;
+    }
+
+    .hero__date {
+        margin-top: 15px;
+
+        font-size: 13px;
+
+        letter-spacing: 2.6px;
+    }
+
+    .envelope__body {
+        width:
+            min(290px,
+                82vw);
+
+        height: 184px;
+    }
+
+    .envelope__flap {
+        height: 114px;
+    }
+
+    .envelope__seal {
+        width: 74px;
+        height: 74px;
+
+        font-size: 23px;
+    }
+
+    .hero__branch {
+        width: 125px;
+    }
+
+    .hero__branch--left {
+        top: -35px;
+        left: -55px;
+    }
+
+    .hero__branch--right {
+        right: -55px;
+        bottom: -40px;
+    }
+}

@@ -1,0 +1,27 @@
+@keyframes floating {
+
+    0%,
+    100% {
+        transform:
+            translateY(0) rotate(-0.2deg);
+    }
+
+    50% {
+        transform:
+            translateY(-7px) rotate(0.2deg);
+    }
+}
+
+@keyframes pulseSeal {
+
+    0%,
+    100% {
+        transform:
+            translate(-50%, -5%) scale(1);
+    }
+
+    50% {
+        transform:
+            translate(-50%, -5%) scale(1.035);
+    }
+}

@@ -1,0 +1,50 @@
+:root {
+    /* Base */
+    --color-ivory: #efe8da;
+    --color-ivory-soft: #f8f3ea;
+    --color-paper: #f4eee4;
+
+    /* Greens */
+    --color-olive-dark: #3f4938;
+    --color-olive: #59654e;
+    --color-sage: #7d896e;
+    --color-sage-light: #a8b09a;
+
+    /* Gold */
+    --color-gold-dark: #8f6d36;
+    --color-gold: #b59659;
+    --color-gold-light: #dbc38d;
+
+    /* Text */
+    --color-charcoal: #272822;
+    --color-text-muted: #67685f;
+
+    /* Typography */
+    --font-display: "Cormorant Garamond", serif;
+    --font-script: "Great Vibes", cursive;
+    --font-body: "Montserrat", sans-serif;
+
+    /* Layout */
+    --page-max-width: 430px;
+    --section-padding-x: 24px;
+
+    /* Radius */
+    --radius-sm: 8px;
+    --radius-md: 16px;
+    --radius-lg: 28px;
+
+    /* Shadows */
+    --shadow-soft:
+        0 10px 30px rgba(39, 40, 34, 0.12);
+
+    --shadow-envelope:
+        0 20px 45px rgba(39, 40, 34, 0.22);
+
+    --shadow-seal:
+        0 5px 12px rgba(74, 52, 24, 0.35);
+
+    /* Motion */
+    --transition-fast: 180ms ease;
+    --transition-normal: 320ms ease;
+    --transition-slow: 700ms ease;
+}
