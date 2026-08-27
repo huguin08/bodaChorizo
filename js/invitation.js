@@ -26,21 +26,19 @@ if (openInvitationButton) {
              * Paso 1:
              * desaparecer sello
              */
-            openInvitationButton.classList.add(
-                "envelope--opening"
-            );
+            openInvitationButton.classList.add("envelope--opening");
 
             /*
              * Paso 2:
              * abrir solapa
              */
             setTimeout(() => {
-
-                openInvitationButton.classList.add(
-                    "envelope--open"
-                );
-
+                openInvitationButton.classList.add("envelope--open");
             }, 350);
+
+            setTimeout(() => {
+                openInvitationButton.classList.add("envelope--card-out");
+            }, 800);
 
         }
     );
