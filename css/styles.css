@@ -1,6 +1,11 @@
 @import url("./variables.css");
 @import url("./animations.css");
 
+
+/* ============================
+   GLOBAL
+============================ */
+
 *,
 *::before,
 *::after {
@@ -16,13 +21,14 @@ body {
     min-height: 100vh;
 
     font-family: var(--font-body);
-
     color: var(--color-charcoal);
 
     background:
-        linear-gradient(180deg,
+        linear-gradient(
+            180deg,
             var(--color-ivory-soft),
-            var(--color-ivory));
+            var(--color-ivory)
+        );
 }
 
 button,
@@ -39,6 +45,7 @@ img {
     max-width: 100%;
 }
 
+
 /* ============================
    PAPER / PAGE
 ============================ */
@@ -54,19 +61,25 @@ img {
     min-height: 100vh;
 
     background:
-        radial-gradient(circle at 20% 10%,
+        radial-gradient(
+            circle at 20% 10%,
             rgba(255, 255, 255, 0.6),
-            transparent 35%),
-        radial-gradient(circle at 80% 90%,
+            transparent 35%
+        ),
+        radial-gradient(
+            circle at 80% 90%,
             rgba(181, 150, 89, 0.08),
-            transparent 30%),
+            transparent 30%
+        ),
         var(--color-paper);
 
     box-shadow:
         0 0 60px rgba(0, 0, 0, 0.06);
 }
 
-/* subtle paper texture */
+
+/* textura sutil del papel */
+
 .wedding-page::before {
     content: "";
 
@@ -78,12 +91,15 @@ img {
     opacity: 0.25;
 
     background-image:
-        repeating-linear-gradient(0deg,
+        repeating-linear-gradient(
+            0deg,
             rgba(70, 70, 60, 0.02),
             rgba(70, 70, 60, 0.02) 1px,
             transparent 1px,
-            transparent 3px);
+            transparent 3px
+        );
 }
+
 
 /* ============================
    HERO
@@ -95,7 +111,9 @@ img {
     min-height: 100vh;
 
     padding:
-        46px var(--section-padding-x) 34px;
+        46px
+        var(--section-padding-x)
+        34px;
 
     display: flex;
     flex-direction: column;
@@ -107,6 +125,7 @@ img {
     isolation: isolate;
 }
 
+
 /* ============================
    BOTANICAL BRANCHES
 ============================ */
@@ -116,6 +135,7 @@ img {
 
     width: 145px;
     height: auto;
+
     aspect-ratio: 180 / 320;
 
     z-index: 1;
@@ -142,19 +162,21 @@ img {
     transform-origin: bottom right;
 }
 
+
 /* ============================
    HEADER
 ============================ */
 
 .hero__header {
-    width: 100%;
-
-    text-align: center;
-
     position: relative;
 
     z-index: 2;
+
+    width: 100%;
+
+    text-align: center;
 }
+
 
 /* ============================
    MONOGRAM
@@ -167,7 +189,8 @@ img {
     height: 126px;
 
     margin:
-        0 auto 26px;
+        0 auto
+        26px;
 
     border-radius: 50%;
 
@@ -176,16 +199,21 @@ img {
     justify-content: center;
 
     border:
-        1px solid rgba(181, 150, 89, 0.75);
+        1px solid
+        rgba(181, 150, 89, 0.75);
 
     background:
-        radial-gradient(circle,
+        radial-gradient(
+            circle,
             rgba(244, 238, 228, 0.96) 0%,
             rgba(244, 238, 228, 0.82) 65%,
-            rgba(244, 238, 228, 0.20) 100%);
+            rgba(244, 238, 228, 0.20) 100%
+        );
 
     box-shadow:
-        inset 0 0 0 5px rgba(181, 150, 89, 0.08);
+        inset
+        0 0 0 5px
+        rgba(181, 150, 89, 0.08);
 }
 
 .hero__monogram::before,
@@ -200,9 +228,11 @@ img {
     top: 50%;
 
     background:
-        linear-gradient(90deg,
+        linear-gradient(
+            90deg,
             transparent,
-            var(--color-gold));
+            var(--color-gold)
+        );
 }
 
 .hero__monogram::before {
@@ -218,7 +248,8 @@ img {
 .hero__monogram-inner {
     position: relative;
 
-    font-family: var(--font-display);
+    font-family:
+        var(--font-display);
 
     font-size: 37px;
 
@@ -226,7 +257,8 @@ img {
 
     letter-spacing: 1px;
 
-    color: var(--color-gold-dark);
+    color:
+        var(--color-gold-dark);
 }
 
 .hero__monogram-inner::before {
@@ -241,11 +273,14 @@ img {
     top: 50%;
 
     transform:
-        translate(-50%, -50%) rotate(45deg);
+        translate(-50%, -50%)
+        rotate(45deg);
 
     border:
-        1px solid rgba(181, 150, 89, 0.30);
+        1px solid
+        rgba(181, 150, 89, 0.30);
 }
+
 
 /* ============================
    EYEBROW
@@ -253,9 +288,11 @@ img {
 
 .hero__eyebrow {
     margin:
-        0 0 8px;
+        0 0
+        8px;
 
-    font-family: var(--font-body);
+    font-family:
+        var(--font-body);
 
     font-size: 11px;
 
@@ -265,8 +302,10 @@ img {
 
     letter-spacing: 5px;
 
-    color: var(--color-olive);
+    color:
+        var(--color-olive);
 }
+
 
 /* ============================
    DIVIDER
@@ -274,7 +313,8 @@ img {
 
 .hero__divider {
     margin:
-        9px auto 8px;
+        9px auto
+        8px;
 
     display: flex;
     align-items: center;
@@ -282,7 +322,8 @@ img {
 
     gap: 9px;
 
-    color: var(--color-gold);
+    color:
+        var(--color-gold);
 
     width: 130px;
 }
@@ -293,9 +334,11 @@ img {
     flex: 1;
 
     background:
-        linear-gradient(90deg,
+        linear-gradient(
+            90deg,
             transparent,
-            var(--color-gold));
+            var(--color-gold)
+        );
 }
 
 .hero__divider span:last-child {
@@ -308,6 +351,7 @@ img {
     font-style: normal;
 }
 
+
 /* ============================
    NAMES
 ============================ */
@@ -315,7 +359,8 @@ img {
 .hero__names {
     margin: 0;
 
-    font-family: var(--font-script);
+    font-family:
+        var(--font-script);
 
     font-size: 58px;
 
@@ -323,11 +368,14 @@ img {
 
     line-height: 1;
 
-    color: var(--color-olive-dark);
+    color:
+        var(--color-olive-dark);
 
     text-shadow:
-        0 1px 0 rgba(255, 255, 255, 0.35);
+        0 1px 0
+        rgba(255, 255, 255, 0.35);
 }
+
 
 /* ============================
    DATE
@@ -344,7 +392,8 @@ img {
     padding:
         0 10px;
 
-    font-family: var(--font-display);
+    font-family:
+        var(--font-display);
 
     font-size: 15px;
 
@@ -352,8 +401,10 @@ img {
 
     letter-spacing: 3.4px;
 
-    color: var(--color-charcoal);
+    color:
+        var(--color-charcoal);
 }
+
 
 /* ============================
    ORNAMENTAL DIVIDER
@@ -361,12 +412,16 @@ img {
 
 .hero__ornament {
     position: relative;
+
     z-index: 5;
 
-    width: min(340px, 85vw);;
+    width:
+        min(340px, 85vw);
+
     height: 30px;
 
-    margin: 22px auto 0;
+    margin:
+        22px auto 0;
 
     display: flex;
     align-items: center;
@@ -377,12 +432,13 @@ img {
 
 .hero__ornament-line {
     display: block;
-    
+
     height: 1px;
 
     flex: 1;
 
-    background-color: #b59659;
+    background-color:
+        var(--color-gold);
 }
 
 .hero__ornament-center {
@@ -395,7 +451,8 @@ img {
     width: 18px;
     height: 18px;
 
-    flex: 0 0 18px;
+    flex:
+        0 0 18px;
 }
 
 .hero__ornament-center i {
@@ -404,13 +461,36 @@ img {
     width: 8px;
     height: 8px;
 
-    border: 1px solid #b59659;
+    border:
+        1px solid
+        var(--color-gold);
 
-    transform: rotate(45deg);
+    transform:
+        rotate(45deg);
 }
 
+
 /* ============================
-   ENVELOPE
+   INVITATION GROUP
+============================ */
+
+.hero__invitation {
+    position: relative;
+
+    z-index: 2;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    gap: 4px;
+
+    margin-top: 80px;
+}
+
+
+/* ============================
+   ENVELOPE CONTAINER
 ============================ */
 
 .envelope {
@@ -419,190 +499,197 @@ img {
     z-index: 2;
 
     margin: 0;
-
     padding: 0;
 
     background: transparent;
 
     cursor: pointer;
 
-    perspective: 900px;
+    perspective: 1200px;
+
+    -webkit-tap-highlight-color:
+        transparent;
 }
+
+
+/* escenario donde viven las capas */
 
 .envelope__body {
     position: relative;
 
     display: block;
 
-    width: 306px;
-    height: 194px;
+    width:
+        min(330px, 84vw);
 
-    border-radius:
-        6px 6px 13px 13px;
-
-    background:
-        linear-gradient(180deg,
-            #4f5a48 0%,
-            #3a4336 100%);
-
-    box-shadow:
-        var(--shadow-envelope);
+    height: 225px;
 
     animation:
-        floating 5s ease-in-out infinite;
+        floating
+        5s
+        ease-in-out
+        infinite;
 }
 
-/* subtle paper fibers */
-.envelope__body::before {
-    content: "";
 
+/* ============================
+   COMMON IMAGE LAYERS
+============================ */
+
+.envelope__base,
+.envelope__flap,
+.envelope__seal,
+.envelope__card {
     position: absolute;
 
-    inset: 0;
+    display: block;
 
-    border-radius: inherit;
-
-    background:
-        repeating-linear-gradient(90deg,
-            rgba(255, 255, 255, 0.018),
-            rgba(255, 255, 255, 0.018) 1px,
-            transparent 1px,
-            transparent 3px);
+    max-width: none;
 
     pointer-events: none;
+
+    user-select: none;
+
+    -webkit-user-drag: none;
 }
+
+
+/* ============================
+   ENVELOPE CARD
+============================ */
+
+.envelope__card {
+    z-index: 2;
+
+    left: 50%;
+    bottom: 28px;
+
+    width: 86%;
+    height: auto;
+
+    transform:
+        translateX(-50%);
+
+    transition:
+        transform
+        900ms
+        cubic-bezier(.22, .61, .36, 1);
+}
+
+
+/* ============================
+   ENVELOPE BASE
+============================ */
+
+.envelope__base {
+    z-index: 3;
+
+    left: 50%;
+    bottom: 0;
+
+    width: 100%;
+    height: auto;
+
+    transform:
+        translateX(-50%);
+}
+
 
 /* ============================
    ENVELOPE FLAP
 ============================ */
 
 .envelope__flap {
-    position: absolute;
+    z-index: 4;
 
+    left: 50%;
     top: 0;
-    left: 0;
-
-    z-index: 2;
 
     width: 100%;
-    height: 122px;
+    height: auto;
 
-    clip-path:
-        polygon(0 0,
-            100% 0,
-            50% 100%);
+    transform:
+        translateX(-50%)
+        rotateX(0deg);
 
-    background:
-        linear-gradient(180deg,
-            #606c57 0%,
-            #4c5746 100%);
+    transform-origin:
+        50% 0%;
 
-    filter:
-        drop-shadow(0 3px 3px rgba(0, 0, 0, 0.12));
+    transition:
+        transform
+        800ms
+        cubic-bezier(.4, 0, .2, 1);
 
-    transform-origin: top center;
+    backface-visibility:
+        hidden;
 
-    backface-visibility: hidden;
+    -webkit-backface-visibility:
+        hidden;
 }
 
-/* ============================
-   ENVELOPE SIDES
-============================ */
-
-.envelope__body::after {
-    content: "";
-
-    position: absolute;
-
-    left: 0;
-    bottom: 0;
-
-    width: 100%;
-    height: 140px;
-
-    clip-path:
-        polygon(0 15%,
-            50% 65%,
-            100% 15%,
-            100% 100%,
-            0 100%);
-
-    background:
-        linear-gradient(180deg,
-            #465040,
-            #394236);
-
-    pointer-events: none;
-}
 
 /* ============================
    WAX SEAL
 ============================ */
 
 .envelope__seal {
-    position: absolute;
-
-    left: 50%;
-    top: 53%;
-
     z-index: 5;
 
+    left: 50%;
+    top: 47%;
+
     width: 82px;
-    height: 82px;
+    height: auto;
 
     transform:
-        translate(-50%, -5%);
+        translate(-50%, -50%)
+        scale(1);
 
-    border-radius:
-        48% 52% 45% 55% / 52% 46% 54% 48%;
+    transition:
+        opacity 300ms ease,
+        transform 300ms ease;
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    font-family:
-        var(--font-display);
-
-    font-size: 26px;
-
-    font-weight: 600;
-
-    letter-spacing: 0.5px;
-
-    color: #5d451d;
-
-    background:
-        radial-gradient(circle at 35% 30%,
-            #eddca8 0%,
-            #c2a264 45%,
-            #9a7435 72%,
-            #765521 100%);
-
-    box-shadow:
-        var(--shadow-seal),
-        inset 1px 1px 4px rgba(255, 255, 255, 0.35),
-        inset -2px -2px 4px rgba(87, 57, 20, 0.28);
-
-    animation:
-        pulseSeal 2.8s ease-in-out infinite;
+    filter:
+        drop-shadow(
+            0 5px 5px
+            rgba(68, 46, 15, 0.28)
+        );
 }
 
-/* inner wax ring */
-.envelope__seal::before {
-    content: "";
 
-    position: absolute;
+/* ============================
+   ENVELOPE OPENING
+============================ */
 
-    inset: 8px;
+.envelope--opening
+.envelope__seal {
+    opacity: 0;
 
-    border-radius: 50%;
-
-    border:
-        1px solid rgba(92, 67, 28, 0.35);
-
-    box-shadow:
-        inset 0 0 4px rgba(255, 255, 255, 0.25);
+    transform:
+        translate(-50%, -50%)
+        scale(0.72);
 }
+
+
+/* abrir solapa */
+
+.envelope--open
+.envelope__flap {
+    transform:
+        translateX(-50%)
+        rotateX(180deg);
+}
+
+
+/* sacar carta */
+
+.envelope--open
+.envelope__card {
+    transform:
+        translateX(-50%)
+        translateY(-115px);
+}
+
 
 /* ============================
    CALL TO ACTION
@@ -652,18 +739,25 @@ img {
         var(--color-gold-dark);
 }
 
+
 /* ============================
    INTERACTION STATES
 ============================ */
 
-.envelope:hover .envelope__seal {
+.envelope:hover
+.envelope__seal {
     filter:
-        brightness(1.06);
+        brightness(1.06)
+        drop-shadow(
+            0 5px 5px
+            rgba(68, 46, 15, 0.28)
+        );
 }
 
 .envelope:focus-visible {
     outline:
-        2px solid var(--color-gold);
+        2px solid
+        var(--color-gold);
 
     outline-offset:
         8px;
@@ -672,14 +766,17 @@ img {
         var(--radius-md);
 }
 
+
 /* ============================
    MOBILE
 ============================ */
 
 @media (max-width: 430px) {
+
     .hero {
         padding-top: 32px;
     }
+
 
     .hero__monogram {
         width: 104px;
@@ -688,18 +785,22 @@ img {
         margin-bottom: 20px;
     }
 
+
     .hero__monogram-inner {
         font-size: 31px;
     }
+
 
     .hero__monogram-inner::before {
         width: 62px;
         height: 62px;
     }
 
+
     .hero__names {
         font-size: 50px;
     }
+
 
     .hero__date {
         margin-top: 15px;
@@ -709,32 +810,16 @@ img {
         letter-spacing: 2.6px;
     }
 
-    .envelope__body {
-        width:
-            min(290px,
-                82vw);
-
-        height: 184px;
-    }
-
-    .envelope__flap {
-        height: 114px;
-    }
-
-    .envelope__seal {
-        width: 74px;
-        height: 74px;
-
-        font-size: 23px;
-    }
 
     .hero__branch {
         width: 145px;
     }
 
+
     .hero__branch--left {
         width: 145px;
     }
+
 
     .hero__branch--right {
         width: 240px;
@@ -743,20 +828,31 @@ img {
         right: -75px;
         bottom: -110px;
 
-        transform: rotate(35deg);
-        transform-origin: bottom right;
+        transform:
+            rotate(35deg);
+
+        transform-origin:
+            bottom right;
     }
 
-}
 
-.hero__invitation {
-    position: relative;
-    z-index: 2;
+    /* sobre */
 
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    .envelope__body {
+        width:
+            min(290px, 82vw);
 
-    gap: 4px;
-    margin-top: 80px;
+        height: 200px;
+    }
+
+
+    .envelope__seal {
+        width: 74px;
+    }
+
+
+    .envelope__card {
+        width: 86%;
+    }
+
 }
