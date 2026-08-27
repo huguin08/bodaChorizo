@@ -107,10 +107,180 @@
 
         </section>
 
+        <section class="welcome-section" id="welcome">
+
+            <div class="welcome-section__content">
+
+                <h2 class="welcome-section__title">
+                    Nuestra Boda
+                </h2>
+
+                <p class="welcome-section__date">
+                    12.12.2026
+                </p>
+
+                <div class="welcome-section__couple-art" aria-hidden="true">
+                    <div class="welcome-section__couple-placeholder">
+                        Silueta de novios
+                    </div>
+                </div>
+
+                <p class="welcome-section__message">
+                    Porque tú has sido parte de nuestra historia,
+                    queremos que estés en nuestro mejor capítulo.
+                </p>
+
+                <div class="welcome-section__ornament" aria-hidden="true">
+                    <span></span>
+                    <i>♡</i>
+                    <span></span>
+                </div>
+
+            </div>
+
+        </section>
+
+        <section class="save-date-section" id="saveDate">
+
+            <div class="save-date-section__content">
+
+                <!-- Anillos -->
+                <div class="save-date-section__rings" aria-hidden="true">
+                    <span class="save-date-section__rings-placeholder">
+                        Anillos
+                    </span>
+                </div>
+
+                <!-- Reproductor -->
+                <div class="music-player" id="musicPlayer">
+
+                    <audio id="weddingAudio" preload="metadata">
+                        <source src="./assets/audio/sailing.mp3" type="audio/mpeg" />
+                    </audio>
+
+                    <button class="music-player__button" id="musicToggle" type="button" aria-label="Reproducir Sailing">
+                        <span id="musicIcon">
+                            ▶
+                        </span>
+                    </button>
+
+                    <div class="music-player__content">
+
+                        <div class="music-player__header">
+
+                            <div class="music-player__info">
+
+                                <span class="music-player__song">
+                                    Sailing
+                                </span>
+
+                                <span class="music-player__artist">
+                                    Christopher Cross
+                                </span>
+
+                            </div>
+
+                            <span class="music-player__time" id="musicTime">
+                                0:00
+                            </span>
+
+                        </div>
+
+                        <div class="music-player__progress" id="musicProgress">
+
+                            <div class="music-player__progress-fill" id="musicProgressFill"></div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- Save the Date -->
+                <div class="save-date-section__heading">
+
+                    <h2 class="save-date-section__title">
+                        Save the Date
+                    </h2>
+
+                </div>
+
+
+                <!-- Composición decorativa -->
+                <div class="save-date-scene">
+
+                    <!-- Carta -->
+                    <div class="save-date-scene__card">
+
+                        <span class="save-date-scene__card-small">
+                            Estás invitado a
+                        </span>
+
+                        <span class="save-date-scene__card-title">
+                            nuestra boda
+                        </span>
+
+                        <span class="save-date-scene__card-names">
+                            Malú & Gibran
+                        </span>
+
+                        <span class="save-date-scene__card-date">
+                            12 · 12 · 2026
+                        </span>
+
+                    </div>
+
+
+                    <!-- Fotos -->
+                    <div class="save-date-scene__photo save-date-scene__photo--left">
+                        Foto 01
+                    </div>
+
+                    <div class="save-date-scene__photo save-date-scene__photo--right">
+                        Foto 02
+                    </div>
+
+
+                    <!-- Sobre -->
+                    <div class="save-date-scene__envelope">
+
+                        <div class="save-date-scene__envelope-flap"></div>
+
+                        <div class="save-date-scene__seal">
+                            M&G
+                        </div>
+
+                    </div>
+
+
+                    <!-- Decoración -->
+                    <div class="save-date-scene__botanical save-date-scene__botanical--left">
+                        🌿
+                    </div>
+
+                    <div class="save-date-scene__botanical save-date-scene__botanical--right">
+                        🌿
+                    </div>
+
+                    <div class="save-date-scene__flower save-date-scene__flower--one">
+                        ✿
+                    </div>
+
+                    <div class="save-date-scene__flower save-date-scene__flower--two">
+                        ✿
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
     </main>
 
     <script src="./js/config.js"></script>
     <script src="./js/invitation.js"></script>
+    <script src="./js/music.js"></script>
 </body>
 
 </html>

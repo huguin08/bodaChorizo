@@ -115,6 +115,29 @@ img {
     isolation: isolate;
 }
 
+/* ============================
+   HERO EXIT
+============================ */
+
+.hero {
+    transition:
+        opacity 600ms ease,
+        transform 600ms ease;
+}
+
+.hero--leaving {
+    opacity: 0;
+
+    transform:
+        translateY(-20px);
+
+    pointer-events: none;
+}
+
+.hero--hidden {
+    display: none;
+}
+
 
 /* ============================
    BOTANICAL BRANCHES
@@ -721,6 +744,738 @@ img {
         var(--radius-md);
 }
 
+/* ============================
+   WELCOME SECTION
+============================ */
+
+.welcome-section {
+    position: relative;
+
+    transition:
+        opacity 700ms ease;
+
+    min-height: 100vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding:
+        60px var(--section-padding-x);
+
+    background:
+        linear-gradient(180deg,
+            #68705a 0%,
+            #5d654f 100%);
+
+    color: #f6f1e7;
+
+    overflow: hidden;
+}
+
+.welcome-section__content {
+    width: 100%;
+    max-width: 360px;
+
+    margin: 0 auto;
+
+    text-align: center;
+}
+
+.welcome-section__title {
+    margin: 0;
+
+    font-family: var(--font-script);
+
+    font-size: 68px;
+
+    font-weight: 400;
+
+    line-height: 1;
+
+    color: #f7f2e8;
+}
+
+.welcome-section__date {
+    margin: 24px 0 0;
+
+    font-family: var(--font-display);
+
+    font-size: 24px;
+
+    font-weight: 400;
+
+    letter-spacing: 4px;
+
+    color: #f5efe4;
+}
+
+.welcome-section__couple-art {
+    margin:
+        48px auto 42px;
+
+    display: flex;
+    justify-content: center;
+}
+
+.welcome-section__couple-placeholder {
+    width: 220px;
+    height: 220px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border:
+        1px solid rgba(246, 241, 231, 0.45);
+
+    border-radius: 50%;
+
+    font-family: var(--font-display);
+
+    font-size: 15px;
+
+    letter-spacing: 1px;
+
+    color:
+        rgba(246, 241, 231, 0.75);
+}
+
+.welcome-section__message {
+    margin: 0 auto;
+
+    max-width: 330px;
+
+    font-family: var(--font-display);
+
+    font-size: 21px;
+
+    font-weight: 400;
+
+    line-height: 1.35;
+
+    letter-spacing: 1px;
+
+    text-transform: uppercase;
+
+    color: #f7f1e6;
+}
+
+.welcome-section__ornament {
+    width: 170px;
+
+    margin:
+        28px auto 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 10px;
+
+    color: #e0c995;
+}
+
+.welcome-section__ornament span {
+    flex: 1;
+
+    height: 1px;
+
+    background:
+        linear-gradient(90deg,
+            transparent,
+            #d9bd7d);
+}
+
+.welcome-section__ornament span:last-child {
+    transform: rotate(180deg);
+}
+
+.welcome-section__ornament i {
+    font-style: normal;
+
+    font-size: 18px;
+}
+
+/* ============================
+   SAVE THE DATE SECTION
+============================ */
+
+.save-date-section {
+    position: relative;
+
+    min-height: 100vh;
+
+    padding:
+        58px var(--section-padding-x) 80px;
+
+    background:
+        linear-gradient(180deg,
+            #eee3d2 0%,
+            #e6d7c1 100%);
+
+    color:
+        var(--color-charcoal);
+
+    overflow: hidden;
+}
+
+.save-date-section__content {
+    width: 100%;
+    max-width: 380px;
+
+    margin: 0 auto;
+
+    text-align: center;
+}
+
+
+/* ============================
+   RINGS
+============================ */
+
+.save-date-section__rings {
+    display: flex;
+    justify-content: center;
+
+    margin-bottom: 22px;
+}
+
+.save-date-section__rings-placeholder {
+    width: 82px;
+    height: 82px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border:
+        1px solid rgba(181, 150, 89, 0.55);
+
+    border-radius: 50%;
+
+    font-family:
+        var(--font-display);
+
+    font-size: 13px;
+
+    color:
+        var(--color-gold-dark);
+}
+
+
+/* ============================
+   MUSIC PLAYER
+============================ */
+
+.music-player {
+    width: min(310px, 92%);
+
+    margin: 0 auto 38px;
+
+    padding:
+        11px 14px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+
+    border:
+        1px solid rgba(89, 101, 78, 0.25);
+
+    border-radius: 22px;
+
+    background:
+        rgba(255, 255, 255, 0.28);
+
+    box-shadow:
+        0 5px 15px rgba(55, 60, 45, 0.06);
+}
+
+.music-player audio {
+    display: none;
+}
+
+.music-player__button {
+    flex-shrink: 0;
+
+    width: 38px;
+    height: 38px;
+
+    padding: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background:
+        var(--color-olive);
+
+    color:
+        #f5efe4;
+
+    font-size: 12px;
+
+    cursor: pointer;
+
+    transition:
+        transform 180ms ease,
+        background 180ms ease;
+}
+
+.music-player__button:hover {
+    transform: scale(1.05);
+}
+
+.music-player__content {
+    min-width: 0;
+
+    flex: 1;
+}
+
+.music-player__header {
+    display: flex;
+
+    align-items: flex-end;
+    justify-content: space-between;
+
+    gap: 10px;
+}
+
+.music-player__info {
+    min-width: 0;
+
+    display: flex;
+    flex-direction: column;
+
+    text-align: left;
+}
+
+.music-player__song {
+    font-family:
+        var(--font-display);
+
+    font-size: 15px;
+
+    line-height: 1;
+
+    color:
+        var(--color-olive-dark);
+}
+
+.music-player__artist {
+    margin-top: 3px;
+
+    font-family:
+        var(--font-body);
+
+    font-size: 8px;
+
+    letter-spacing: 0.6px;
+
+    color:
+        var(--color-text-muted);
+}
+
+.music-player__time {
+    flex-shrink: 0;
+
+    font-family:
+        var(--font-body);
+
+    font-size: 8px;
+
+    color:
+        var(--color-text-muted);
+}
+
+/* barra completa */
+
+.music-player__progress {
+    position: relative;
+
+    width: 100%;
+    height: 4px;
+
+    margin-top: 8px;
+
+    overflow: hidden;
+
+    border-radius: 100px;
+
+    background:
+        rgba(89, 101, 78, 0.18);
+
+    cursor: pointer;
+}
+
+/* progreso de canción */
+
+.music-player__progress-fill {
+    width: 0%;
+    height: 100%;
+
+    border-radius: inherit;
+
+    background:
+        var(--color-gold);
+
+    transition:
+        width 100ms linear;
+}
+
+
+/* ============================
+   HEADING
+============================ */
+
+.save-date-section__heading {
+    margin-bottom: 40px;
+}
+
+.save-date-section__title {
+    margin: 0;
+
+    font-family:
+        var(--font-script);
+
+    font-size: 64px;
+
+    font-weight: 400;
+
+    line-height: 1;
+
+    white-space: nowrap;
+
+    color:
+        var(--color-olive-dark);
+}
+
+
+/* ============================
+   SAVE THE DATE SCENE
+============================ */
+
+.save-date-scene {
+    position: relative;
+
+    width: 100%;
+    height: 470px;
+
+    margin: 0 auto;
+}
+
+
+/* ============================
+   INVITATION CARD
+============================ */
+
+.save-date-scene__card {
+    position: absolute;
+
+    z-index: 4;
+
+    top: 18px;
+    left: 50%;
+
+    width: 205px;
+    height: 255px;
+
+    transform:
+        translateX(-50%) rotate(-2deg);
+
+    padding:
+        38px 18px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    background:
+        #f5eee2;
+
+    border:
+        1px solid rgba(181, 150, 89, 0.45);
+
+    border-radius: 4px;
+
+    box-shadow:
+        0 12px 25px rgba(70, 60, 45, 0.15);
+}
+
+.save-date-scene__card-small {
+    font-family:
+        var(--font-display);
+
+    font-size: 13px;
+
+    color:
+        var(--color-text-muted);
+}
+
+.save-date-scene__card-title {
+    margin-top: 8px;
+
+    font-family:
+        var(--font-script);
+
+    font-size: 34px;
+
+    line-height: 1;
+
+    color:
+        var(--color-olive-dark);
+}
+
+.save-date-scene__card-names {
+    margin-top: 18px;
+
+    font-family:
+        var(--font-display);
+
+    font-size: 18px;
+
+    letter-spacing: 1px;
+
+    color:
+        var(--color-gold-dark);
+}
+
+.save-date-scene__card-date {
+    margin-top: auto;
+
+    font-family:
+        var(--font-body);
+
+    font-size: 9px;
+
+    letter-spacing: 2px;
+
+    color:
+        var(--color-olive);
+}
+
+
+/* ============================
+   PHOTOS
+============================ */
+
+.save-date-scene__photo {
+    position: absolute;
+
+    z-index: 5;
+
+    width: 112px;
+    height: 142px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-family:
+        var(--font-display);
+
+    font-size: 12px;
+
+    color:
+        rgba(255, 255, 255, 0.75);
+
+    background:
+        #858d7a;
+
+    border:
+        7px solid #f4ede2;
+
+    box-shadow:
+        0 10px 18px rgba(50, 45, 35, 0.18);
+}
+
+.save-date-scene__photo--left {
+    left: 12px;
+    top: 138px;
+
+    transform:
+        rotate(-8deg);
+}
+
+.save-date-scene__photo--right {
+    right: 10px;
+    top: 115px;
+
+    transform:
+        rotate(8deg);
+}
+
+
+/* ============================
+   DECORATIVE ENVELOPE
+============================ */
+
+.save-date-scene__envelope {
+    position: absolute;
+
+    z-index: 3;
+
+    left: 50%;
+    bottom: 20px;
+
+    width: 290px;
+    height: 170px;
+
+    transform:
+        translateX(-50%);
+
+    background:
+        linear-gradient(180deg,
+            #5b6650,
+            #414b3c);
+
+    box-shadow:
+        0 16px 30px rgba(45, 50, 38, 0.20);
+}
+
+.save-date-scene__envelope::before,
+.save-date-scene__envelope::after {
+    content: "";
+
+    position: absolute;
+
+    bottom: 0;
+
+    width: 52%;
+    height: 72%;
+
+    background:
+        #4b5644;
+}
+
+.save-date-scene__envelope::before {
+    left: 0;
+
+    clip-path:
+        polygon(0 0,
+            100% 100%,
+            0 100%);
+}
+
+.save-date-scene__envelope::after {
+    right: 0;
+
+    clip-path:
+        polygon(100% 0,
+            100% 100%,
+            0 100%);
+}
+
+.save-date-scene__envelope-flap {
+    position: absolute;
+
+    z-index: 2;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 108px;
+
+    background:
+        #66715a;
+
+    clip-path:
+        polygon(0 0,
+            100% 0,
+            50% 100%);
+}
+
+.save-date-scene__seal {
+    position: absolute;
+
+    z-index: 6;
+
+    left: 50%;
+    top: 55%;
+
+    width: 56px;
+    height: 56px;
+
+    transform:
+        translate(-50%, -50%);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(circle at 35% 30%,
+            #dec487,
+            #a77b38);
+
+    font-family:
+        var(--font-display);
+
+    font-size: 17px;
+
+    color:
+        #57401b;
+}
+
+
+/* ============================
+   TEMPORARY BOTANICAL DECOR
+============================ */
+
+.save-date-scene__botanical,
+.save-date-scene__flower {
+    position: absolute;
+
+    z-index: 7;
+
+    pointer-events: none;
+}
+
+.save-date-scene__botanical {
+    font-size: 52px;
+
+    opacity: 0.75;
+}
+
+.save-date-scene__botanical--left {
+    left: 0;
+    bottom: 85px;
+
+    transform:
+        rotate(-25deg);
+}
+
+.save-date-scene__botanical--right {
+    right: -2px;
+    bottom: 65px;
+
+    transform:
+        rotate(25deg);
+}
+
+.save-date-scene__flower {
+    font-size: 25px;
+
+    color: #f4f0e6;
+}
+
+.save-date-scene__flower--one {
+    left: 48px;
+    bottom: 118px;
+}
+
+.save-date-scene__flower--two {
+    right: 48px;
+    bottom: 105px;
+}
+
 
 /* ============================
    MOBILE
@@ -810,4 +1565,52 @@ img {
         width: 86%;
     }
 
+    /*Save the date Section*/
+
+    .save-date-section {
+        padding:
+            50px 18px 70px;
+    }
+
+    .save-date-section__title {
+        font-size: 58px;
+    }
+
+    .save-date-scene {
+        height: 440px;
+    }
+
+    .save-date-scene__card {
+        width: 190px;
+        height: 240px;
+    }
+
+    .save-date-scene__photo {
+        width: 100px;
+        height: 130px;
+    }
+
+    .save-date-scene__envelope {
+        width: min(280px, 84vw);
+        height: 165px;
+    }
+
+}
+
+/* ============================
+   INVITATION CONTENT LOCK
+============================ */
+
+.welcome-section,
+.save-date-section {
+    display: none;
+}
+
+body.invitation-open .welcome-section,
+body.invitation-open .save-date-section {
+    display: block;
+}
+
+body:not(.invitation-open) {
+    overflow: hidden;
 }
