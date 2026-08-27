@@ -1,156 +1,374 @@
-const audio =
-    document.getElementById("weddingAudio");
+(() => {
 
-const musicToggle =
-    document.getElementById("musicToggle");
+    console.log("music.js cargado");
 
-const musicIcon =
-    document.getElementById("musicIcon");
+    const audio =
+        document.getElementById("weddingAudio");
 
-const progress =
-    document.getElementById("musicProgress");
+    const toggleButton =
+        document.getElementById("musicToggle");
 
-const progressFill =
-    document.getElementById("musicProgressFill");
+    const icon =
+        document.getElementById("musicIcon");
 
-const musicTime =
-    document.getElementById("musicTime");
+    const progressBar =
+        document.getElementById("musicProgress");
+
+    const progressFill =
+        document.getElementById("musicProgressFill");
+
+    const timeDisplay =
+        document.getElementById("musicTime");
+
+    const volumeToggle =
+        document.getElementById("volumeToggle");
+
+    const volumeIcon =
+        document.getElementById("volumeIcon");
+
+    const volumeRange =
+        document.getElementById("volumeRange");
 
 
-function formatTime(seconds) {
+    if (
+        !audio ||
+        !toggleButton ||
+        !icon ||
+        !progressBar ||
+        !progressFill ||
+        !timeDisplay ||
+        !volumeToggle ||
+        !volumeIcon ||
+        !volumeRange
+    ) {
 
-    if (!Number.isFinite(seconds)) {
-        return "0:00";
+        console.error(
+            "No se encontraron todos los elementos del reproductor."
+        );
+
+        return;
     }
 
-    const minutes =
-        Math.floor(seconds / 60);
 
-    const remainingSeconds =
-        Math.floor(seconds % 60)
-            .toString()
-            .padStart(2, "0");
-
-    return `${minutes}:${remainingSeconds}`;
-}
+    let previousVolume = 0.7;
 
 
-/* ============================
-   PLAY / PAUSE
-============================ */
+    /* ============================
+       INITIAL VOLUME
+    ============================ */
 
-musicToggle.addEventListener(
-    "click",
-    async () => {
+    audio.volume = 0.7;
+
+    volumeRange.value = audio.volume;
+
+
+    function formatTime(seconds) {
+
+        if (!Number.isFinite(seconds)) {
+            return "0:00";
+        }
+
+        const minutes =
+            Math.floor(seconds / 60);
+
+        const remainingSeconds =
+            Math.floor(seconds % 60)
+                .toString()
+                .padStart(2, "0");
+
+        return `${minutes}:${remainingSeconds}`;
+    }
+
+
+    function updatePlayerState() {
 
         if (audio.paused) {
 
-            try {
+            icon.textContent = "▶";
 
-                await audio.play();
-
-                musicIcon.textContent = "❚❚";
-
-                musicToggle.setAttribute(
-                    "aria-label",
-                    "Pausar Sailing"
-                );
-
-            } catch (error) {
-
-                console.error(
-                    "No se pudo reproducir el audio:",
-                    error
-                );
-
-            }
+            toggleButton.setAttribute(
+                "aria-label",
+                "Reproducir Sailing"
+            );
 
         } else {
 
-            audio.pause();
+            icon.textContent = "❚❚";
 
-            musicIcon.textContent = "▶";
-
-            musicToggle.setAttribute(
+            toggleButton.setAttribute(
                 "aria-label",
-                "Reproducir Sailing"
+                "Pausar Sailing"
             );
 
         }
 
     }
-);
 
 
-/* ============================
-   PROGRESS
-============================ */
+    function updateVolumeIcon() {
 
-audio.addEventListener(
-    "timeupdate",
-    () => {
+        if (
+            audio.muted ||
+            audio.volume === 0
+        ) {
 
-        if (!audio.duration) {
-            return;
+            volumeIcon.textContent = "🔇";
+
+            volumeToggle.setAttribute(
+                "aria-label",
+                "Activar sonido"
+            );
+
+        } else if (audio.volume < 0.5) {
+
+            volumeIcon.textContent = "🔉";
+
+            volumeToggle.setAttribute(
+                "aria-label",
+                "Silenciar música"
+            );
+
+        } else {
+
+            volumeIcon.textContent = "🔊";
+
+            volumeToggle.setAttribute(
+                "aria-label",
+                "Silenciar música"
+            );
+
         }
 
+    }
+
+
+    function updateVolumeTrack() {
+
         const percentage =
-            (
-                audio.currentTime /
-                audio.duration
-            ) * 100;
+            Number(volumeRange.value) * 100;
 
-        progressFill.style.width =
-            `${percentage}%`;
-
-        musicTime.textContent =
-            formatTime(audio.currentTime);
+        volumeRange.style.background =
+            `linear-gradient(
+                to right,
+                var(--color-gold) 0%,
+                var(--color-gold) ${percentage}%,
+                rgba(89, 101, 78, 0.18) ${percentage}%,
+                rgba(89, 101, 78, 0.18) 100%
+            )`;
 
     }
-);
 
 
-/* ============================
-   SEEK
-============================ */
+    /* ============================
+       PLAY / PAUSE
+    ============================ */
 
-progress.addEventListener(
-    "click",
-    (event) => {
+    toggleButton.addEventListener(
+        "click",
+        async () => {
 
-        if (!audio.duration) {
-            return;
+            if (audio.paused) {
+
+                try {
+
+                    await audio.play();
+
+                } catch (error) {
+
+                    console.error(
+                        "No se pudo reproducir el audio:",
+                        error
+                    );
+
+                }
+
+            } else {
+
+                audio.pause();
+
+            }
+
         }
-
-        const rect =
-            progress.getBoundingClientRect();
-
-        const clickPosition =
-            event.clientX - rect.left;
-
-        const percentage =
-            clickPosition / rect.width;
-
-        audio.currentTime =
-            percentage * audio.duration;
-
-    }
-);
+    );
 
 
-/* ============================
-   SONG FINISHED
-============================ */
+    /* ============================
+       AUDIO STATE
+    ============================ */
 
-audio.addEventListener(
-    "ended",
-    () => {
+    audio.addEventListener(
+        "play",
+        updatePlayerState
+    );
 
-        musicIcon.textContent = "▶";
+    audio.addEventListener(
+        "pause",
+        updatePlayerState
+    );
 
-        progressFill.style.width = "0%";
 
-        musicTime.textContent = "0:00";
+    /* ============================
+       PROGRESS
+    ============================ */
 
-    }
-);
+    audio.addEventListener(
+        "timeupdate",
+        () => {
+
+            if (!audio.duration) {
+                return;
+            }
+
+            const percentage =
+                (
+                    audio.currentTime /
+                    audio.duration
+                ) * 100;
+
+            progressFill.style.width =
+                `${percentage}%`;
+
+            timeDisplay.textContent =
+                formatTime(audio.currentTime);
+
+        }
+    );
+
+
+    /* ============================
+       SEEK
+    ============================ */
+
+    progressBar.addEventListener(
+        "click",
+        (event) => {
+
+            if (!audio.duration) {
+                return;
+            }
+
+            const rect =
+                progressBar.getBoundingClientRect();
+
+            const clickPosition =
+                event.clientX - rect.left;
+
+            const percentage =
+                Math.min(
+                    Math.max(
+                        clickPosition / rect.width,
+                        0
+                    ),
+                    1
+                );
+
+            audio.currentTime =
+                percentage * audio.duration;
+
+        }
+    );
+
+
+    /* ============================
+       VOLUME RANGE
+    ============================ */
+
+    volumeRange.addEventListener(
+        "input",
+        () => {
+
+            const newVolume =
+                Number(volumeRange.value);
+
+            audio.volume =
+                newVolume;
+
+            audio.muted =
+                newVolume === 0;
+
+            if (newVolume > 0) {
+
+                previousVolume =
+                    newVolume;
+
+            }
+
+            updateVolumeIcon();
+
+            updateVolumeTrack();
+
+        }
+    );
+
+
+    /* ============================
+       MUTE / UNMUTE
+    ============================ */
+
+    volumeToggle.addEventListener(
+        "click",
+        () => {
+
+            if (
+                audio.muted ||
+                audio.volume === 0
+            ) {
+
+                audio.muted = false;
+
+                audio.volume =
+                    previousVolume || 0.7;
+
+                volumeRange.value =
+                    audio.volume;
+
+            } else {
+
+                previousVolume =
+                    audio.volume;
+
+                audio.muted = true;
+
+                volumeRange.value = 0;
+
+            }
+
+            updateVolumeIcon();
+
+            updateVolumeTrack();
+
+        }
+    );
+
+
+    /* ============================
+       FINISHED
+    ============================ */
+
+    audio.addEventListener(
+        "ended",
+        () => {
+
+            progressFill.style.width =
+                "0%";
+
+            timeDisplay.textContent =
+                "0:00";
+
+            updatePlayerState();
+
+        }
+    );
+
+
+    /* ============================
+       INITIAL STATE
+    ============================ */
+
+    updatePlayerState();
+
+    updateVolumeIcon();
+
+    updateVolumeTrack();
+
+})();
