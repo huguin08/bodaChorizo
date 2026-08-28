@@ -113,6 +113,15 @@ img {
     overflow: hidden;
 
     isolation: isolate;
+
+    background-color: #eee3d2;
+
+    background-image:
+        url("../assets/images/hero/hero-background-light.png");
+
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
 }
 
 /* ============================
@@ -144,18 +153,7 @@ img {
 ============================ */
 
 .hero__branch {
-    position: absolute;
-
-    width: 145px;
-    height: auto;
-
-    aspect-ratio: 180 / 320;
-
-    z-index: 1;
-
-    opacity: 0.60;
-
-    pointer-events: none;
+    display: none;
 }
 
 .hero__branch--left {
@@ -668,12 +666,6 @@ img {
     transform:
         translateX(-50%) translateY(-115px);
 }
-
-/*.envelope--open .envelope__card {
-    transform:
-        translateX(-50%) translateY(-115px);
-}*/
-
 
 /* ============================
    CALL TO ACTION
