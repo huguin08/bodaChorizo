@@ -905,7 +905,7 @@ img {
     pointer-events: none;
     user-select: none;
 
-    opacity: 1.42;
+    opacity: 1;
 }
 
 .welcome-section__botanical--top-left {
@@ -960,36 +960,29 @@ img {
 
 
 /* ============================
-   RINGS
+   WEDDING RINGS
 ============================ */
 
 .save-date-section__rings {
-    display: flex;
-    justify-content: center;
-
-    margin-bottom: 22px;
-}
-
-.save-date-section__rings-placeholder {
-    width: 82px;
-    height: 82px;
+    width: 100%;
 
     display: flex;
     align-items: center;
     justify-content: center;
 
-    border:
-        1px solid rgba(181, 150, 89, 0.55);
+    margin-bottom: 28px;
+}
 
-    border-radius: 50%;
+.save-date-section__rings-image {
+    display: block;
 
-    font-family:
-        var(--font-display);
+    width: 130px;
+    height: auto;
 
-    font-size: 13px;
+    object-fit: contain;
 
-    color:
-        var(--color-gold-dark);
+    user-select: none;
+    pointer-events: none;
 }
 
 
@@ -1213,13 +1206,11 @@ img {
     cursor: pointer;
 
     background:
-        linear-gradient(
-            to right,
+        linear-gradient(to right,
             var(--color-gold) 0%,
             var(--color-gold) 70%,
             rgba(89, 101, 78, 0.18) 70%,
-            rgba(89, 101, 78, 0.18) 100%
-        );
+            rgba(89, 101, 78, 0.18) 100%);
 }
 
 .music-player__volume-range::-webkit-slider-thumb {
@@ -1280,324 +1271,212 @@ img {
 
 
 /* ============================
-   SAVE THE DATE SCENE
+   SAVE THE DATE ASSET SCENE
 ============================ */
 
 .save-date-scene {
     position: relative;
 
     width: 100%;
-    height: 470px;
+    max-width: 380px;
+    height: 520px;
 
     margin: 0 auto;
 }
 
-
-/* ============================
-   INVITATION CARD
-============================ */
-
-.save-date-scene__card {
+.save-date-scene__asset {
     position: absolute;
 
-    z-index: 4;
+    display: block;
 
-    top: 18px;
+    height: auto;
+    max-width: none;
+
+    pointer-events: none;
+    user-select: none;
+}
+
+/* ============================
+   SOBRE - CAPA TRASERA
+============================ */
+
+.save-date-scene__asset--envelope-back {
+    z-index: 2;
+
+    left: 50%;
+    bottom: 109px;
+
+    width: 305px;
+
+    transform:
+        translateX(-50%);
+}
+
+
+/* ============================
+   CARTA
+============================ */
+
+.save-date-scene__asset--card {
+    z-index: 3;
+
+    top: 26px;
     left: 50%;
 
     width: 205px;
-    height: 255px;
 
     transform:
         translateX(-50%) rotate(-2deg);
-
-    padding:
-        38px 18px;
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
-    background:
-        #f5eee2;
-
-    border:
-        1px solid rgba(181, 150, 89, 0.45);
-
-    border-radius: 4px;
-
-    box-shadow:
-        0 12px 25px rgba(70, 60, 45, 0.15);
-}
-
-.save-date-scene__card-small {
-    font-family:
-        var(--font-display);
-
-    font-size: 13px;
-
-    color:
-        var(--color-text-muted);
-}
-
-.save-date-scene__card-title {
-    margin-top: 8px;
-
-    font-family:
-        var(--font-script);
-
-    font-size: 34px;
-
-    line-height: 1;
-
-    color:
-        var(--color-olive-dark);
-}
-
-.save-date-scene__card-names {
-    margin-top: 18px;
-
-    font-family:
-        var(--font-display);
-
-    font-size: 18px;
-
-    letter-spacing: 1px;
-
-    color:
-        var(--color-gold-dark);
-}
-
-.save-date-scene__card-date {
-    margin-top: auto;
-
-    font-family:
-        var(--font-body);
-
-    font-size: 9px;
-
-    letter-spacing: 2px;
-
-    color:
-        var(--color-olive);
 }
 
 
 /* ============================
-   PHOTOS
+   FOTO IZQUIERDA
 ============================ */
 
-.save-date-scene__photo {
-    position: absolute;
+.save-date-scene__asset--photo-left {
+    z-index: 4;
 
+    top: 186px;
+    left: 48px;
+
+    width: 125px;
+
+    transform:
+        rotate(-18deg);
+}
+
+
+/* ============================
+   FOTO DERECHA
+============================ */
+
+.save-date-scene__asset--photo-right {
     z-index: 5;
 
-    width: 112px;
-    height: 142px;
+    top: 181px;
+    right: 42px;
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    font-family:
-        var(--font-display);
-
-    font-size: 12px;
-
-    color:
-        rgba(255, 255, 255, 0.75);
-
-    background:
-        #858d7a;
-
-    border:
-        7px solid #f4ede2;
-
-    box-shadow:
-        0 10px 18px rgba(50, 45, 35, 0.18);
-}
-
-.save-date-scene__photo--left {
-    left: 12px;
-    top: 138px;
+    width: 128px;
 
     transform:
-        rotate(-8deg);
-}
-
-.save-date-scene__photo--right {
-    right: 10px;
-    top: 115px;
-
-    transform:
-        rotate(8deg);
+        rotate(10deg);
 }
 
 
 /* ============================
-   DECORATIVE ENVELOPE
+   SOBRE - BOLSILLO FRONTAL
 ============================ */
 
-.save-date-scene__envelope {
-    position: absolute;
-
-    z-index: 3;
+.save-date-scene__asset--envelope-front {
+    z-index: 6;
 
     left: 50%;
-    bottom: 20px;
+    bottom: 110px;
 
-    width: 290px;
-    height: 170px;
+    width: 305px;
 
     transform:
         translateX(-50%);
 
-    background:
-        linear-gradient(180deg,
-            #5b6650,
-            #414b3c);
-
-    box-shadow:
-        0 16px 30px rgba(45, 50, 38, 0.20);
-}
-
-.save-date-scene__envelope::before,
-.save-date-scene__envelope::after {
-    content: "";
-
-    position: absolute;
-
-    bottom: 0;
-
-    width: 52%;
-    height: 72%;
-
-    background:
-        #4b5644;
-}
-
-.save-date-scene__envelope::before {
-    left: 0;
-
+    /*
+     * Mostramos únicamente la zona inferior
+     * del PNG para convertirla en el bolsillo
+     * delantero del sobre.
+     */
     clip-path:
-        polygon(0 0,
-            100% 100%,
-            0 100%);
-}
-
-.save-date-scene__envelope::after {
-    right: 0;
-
-    clip-path:
-        polygon(100% 0,
-            100% 100%,
-            0 100%);
-}
-
-.save-date-scene__envelope-flap {
-    position: absolute;
-
-    z-index: 2;
-
-    top: 0;
-    left: 0;
-
-    width: 100%;
-    height: 108px;
-
-    background:
-        #66715a;
-
-    clip-path:
-        polygon(0 0,
-            100% 0,
-            50% 100%);
-}
-
-.save-date-scene__seal {
-    position: absolute;
-
-    z-index: 6;
-
-    left: 50%;
-    top: 55%;
-
-    width: 56px;
-    height: 56px;
-
-    transform:
-        translate(-50%, -50%);
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    border-radius: 50%;
-
-    background:
-        radial-gradient(circle at 35% 30%,
-            #dec487,
-            #a77b38);
-
-    font-family:
-        var(--font-display);
-
-    font-size: 17px;
-
-    color:
-        #57401b;
+        inset(48% 0 0 0);
 }
 
 
 /* ============================
-   TEMPORARY BOTANICAL DECOR
+   SELLO
 ============================ */
 
-.save-date-scene__botanical,
-.save-date-scene__flower {
-    position: absolute;
-
+.save-date-scene__asset--seal {
     z-index: 7;
 
-    pointer-events: none;
+    left: 50%;
+    bottom: 168px;
+
+    width: 70px;
+
+    transform:
+        translateX(-50%);
 }
+
+/* ============================
+   BOTÁNICOS INFERIORES
+============================ */
 
 .save-date-scene__botanical {
-    font-size: 52px;
+    position: absolute;
 
-    opacity: 0.75;
+    z-index: 1;
+
+    width: 170px;
+    height: 207px;
+
+    overflow: hidden;
+
+    pointer-events: none;
+    user-select: none;
 }
+
+.save-date-scene__botanical-image {
+    position: absolute;
+
+    top: 0;
+
+    width: 380px;
+    max-width: none;
+    height: auto;
+
+    pointer-events: none;
+    user-select: none;
+}
+
+/* Botánico izquierdo */
 
 .save-date-scene__botanical--left {
-    left: 0;
-    bottom: 85px;
+    left: 0px;
+    bottom: 20px;
 
     transform:
-        rotate(-25deg);
+        rotate(-21deg);
+
+    transform-origin:
+        bottom center;
 }
+
+
+/* Botánico derecho */
 
 .save-date-scene__botanical--right {
-    right: -2px;
-    bottom: 65px;
+    right: 0px;
+    bottom: 14px;
 
     transform:
-        rotate(25deg);
+        rotate(21deg);
+
+    transform-origin:
+        bottom center;
 }
 
-.save-date-scene__flower {
-    font-size: 25px;
 
-    color: #f4f0e6;
+
+
+/* Mitad izquierda del PNG */
+
+.save-date-scene__botanical-image--left {
+    left: 0;
 }
 
-.save-date-scene__flower--one {
-    left: 48px;
-    bottom: 118px;
-}
 
-.save-date-scene__flower--two {
-    right: 48px;
-    bottom: 105px;
+/* Mitad derecha del PNG */
+
+.save-date-scene__botanical-image--right {
+    right: 0;
 }
 
 
@@ -1700,25 +1579,6 @@ img {
         font-size: 58px;
     }
 
-    .save-date-scene {
-        height: 440px;
-    }
-
-    .save-date-scene__card {
-        width: 190px;
-        height: 240px;
-    }
-
-    .save-date-scene__photo {
-        width: 100px;
-        height: 130px;
-    }
-
-    .save-date-scene__envelope {
-        width: min(280px, 84vw);
-        height: 165px;
-    }
-
     .welcome-section__couple-image {
         width: min(285px, 82vw);
     }
@@ -1735,6 +1595,28 @@ img {
         bottom: -55px;
 
         width: 235px;
+    }
+
+    .save-date-scene {
+        height: 500px;
+    }
+
+    .save-date-scene__asset--card {
+        width: 190px;
+    }
+
+    .save-date-scene__asset--photo-left,
+    .save-date-scene__asset--photo-right {
+        width: 112px;
+    }
+
+    .save-date-scene__asset--envelope-back,
+    .save-date-scene__asset--envelope-front {
+        width: min(290px, 86vw);
+    }
+
+    .save-date-scene__asset--seal {
+        width: 64px;
     }
 
 }
