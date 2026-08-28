@@ -1584,17 +1584,17 @@ img {
     }
 
     .welcome-section__botanical--top-left {
-        top: -40px;
-        left: -85px;
+        top: -15px;
+        left: -25px;
 
-        width: 220px;
+        width: 180px;
     }
 
     .welcome-section__botanical--bottom-right {
-        right: -90px;
-        bottom: -55px;
+        right: -25px;
+        bottom: -15px;
 
-        width: 235px;
+        width: 195px;
     }
 
     .save-date-scene {
