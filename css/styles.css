@@ -1471,6 +1471,338 @@ img {
     right: 0;
 }
 
+/* ============================
+   COUNTDOWN SECTION
+============================ */
+
+.countdown-section {
+    position: relative;
+
+    min-height: 100vh;
+
+    padding:
+        64px var(--section-padding-x) 72px;
+
+    background:
+        linear-gradient(180deg,
+            #68705a 0%,
+            #5d654f 100%);
+
+    color: #f6f1e7;
+
+    overflow: hidden;
+}
+
+.countdown-section__content {
+    width: 100%;
+    max-width: 380px;
+
+    margin: 0 auto;
+
+    text-align: center;
+}
+
+
+/* ============================
+   COUNTDOWN
+============================ */
+
+.countdown-section__eyebrow {
+    margin: 0 0 24px;
+
+    font-family:
+        var(--font-script);
+
+    font-size: 48px;
+
+    font-weight: 400;
+
+    line-height: 1;
+
+    color: #f7f2e8;
+}
+
+.countdown {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+
+    gap: 8px;
+
+    margin-bottom: 42px;
+}
+
+.countdown__item {
+    min-width: 62px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.countdown__value {
+    font-family:
+        var(--font-display);
+
+    font-size: 42px;
+
+    font-weight: 400;
+
+    line-height: 1;
+
+    letter-spacing: 1px;
+
+    color: #f7f2e8;
+}
+
+.countdown__label {
+    margin-top: 10px;
+
+    font-family:
+        var(--font-body);
+
+    font-size: 9px;
+
+    text-transform: uppercase;
+
+    letter-spacing: 2px;
+
+    color: #e8dfcf;
+}
+
+.countdown__separator {
+    margin-top: -4px;
+
+    font-family:
+        var(--font-display);
+
+    font-size: 40px;
+
+    line-height: 1;
+
+    color: #d9bd7d;
+}
+
+
+/* ============================
+   CALENDAR
+============================ */
+
+.calendar-card {
+    width: 100%;
+
+    padding:
+        28px 20px 24px;
+
+    border-radius:
+        2px;
+
+    background:
+        linear-gradient(180deg,
+            #f2e8d8 0%,
+            #eadcc7 100%);
+
+    color:
+        var(--color-charcoal);
+
+    box-shadow:
+        0 12px 28px rgba(0, 0, 0, 0.12);
+}
+
+.calendar-card__month {
+    margin:
+        0 0 24px;
+
+    font-family:
+        var(--font-script);
+
+    font-size: 48px;
+
+    font-weight: 400;
+
+    line-height: 1;
+
+    color:
+        var(--color-olive-dark);
+}
+
+.calendar-card__weekdays,
+.calendar-card__days {
+    display: grid;
+
+    grid-template-columns:
+        repeat(7, 1fr);
+
+    align-items: center;
+}
+
+.calendar-card__weekdays {
+    padding-bottom: 12px;
+
+    border-bottom:
+        1px solid rgba(89, 101, 78, 0.30);
+}
+
+.calendar-card__weekdays span {
+    font-family:
+        var(--font-display);
+
+    font-size: 11px;
+
+    font-weight: 600;
+
+    text-transform: uppercase;
+
+    letter-spacing: 0.8px;
+
+    color:
+        var(--color-olive-dark);
+}
+
+.calendar-card__days {
+    row-gap: 14px;
+
+    padding-top: 18px;
+}
+
+.calendar-card__days span {
+    min-height: 30px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-family:
+        var(--font-display);
+
+    font-size: 17px;
+
+    color:
+        var(--color-charcoal);
+}
+
+.calendar-card__special-day {
+    position: relative;
+
+    color:
+        var(--color-gold-dark) !important;
+
+    font-weight: 600;
+}
+
+.calendar-card__special-day::before {
+    content: "♡";
+
+    position: absolute;
+
+    top: 50%;
+    left: 50%;
+
+    transform:
+        translate(-50%, -50%) scale(2.5);
+
+    font-family:
+        var(--font-display);
+
+    font-size: 22px;
+
+    font-weight: 400;
+
+    color:
+        var(--color-gold);
+
+    pointer-events: none;
+}
+
+
+/* ============================
+   MESSAGE
+============================ */
+
+.countdown-section__message {
+    max-width: 340px;
+
+    margin:
+        38px auto 0;
+
+    font-family:
+        var(--font-display);
+
+    font-size: 20px;
+
+    font-weight: 400;
+
+    line-height: 1.35;
+
+    letter-spacing: 0.8px;
+
+    text-transform: uppercase;
+
+    color: #f7f1e6;
+}
+
+.countdown-section__ornament {
+    width: 100%;
+
+    margin: 28px auto 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.countdown-section__ornament-image {
+    display: block;
+
+    width: 300px;
+    max-width: 100%;
+    height: auto;
+
+    object-fit: contain;
+
+    user-select: none;
+    pointer-events: none;
+}
+
+/*.countdown-section__ornament {
+    width: 170px;
+
+    margin:
+        28px auto 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 10px;
+
+    color: #e0c995;
+}
+
+.countdown-section__ornament span {
+    flex: 1;
+
+    height: 1px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            #d9bd7d
+        );
+}
+
+.countdown-section__ornament span:last-child {
+    transform:
+        rotate(180deg);
+}
+
+.countdown-section__ornament i {
+    font-style: normal;
+
+    font-size: 18px;
+}*/
+
 
 /* ============================
    MOBILE
