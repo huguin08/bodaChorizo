@@ -2113,6 +2113,289 @@ img {
 }
 
 /* ============================
+   DRESS CODE SECTION
+============================ */
+
+.dress-code-section {
+    position: relative;
+
+    min-height: 100vh;
+
+    padding:
+        64px var(--section-padding-x) 76px;
+
+    background:
+        linear-gradient(180deg,
+            #68705a 0%,
+            #5d654f 100%);
+
+    color:
+        #f7f1e6;
+
+    overflow: hidden;
+}
+
+.dress-code-section__content {
+    width: 100%;
+    max-width: 380px;
+
+    margin: 0 auto;
+
+    text-align: center;
+}
+
+
+/* ============================
+   HEADER
+============================ */
+
+.dress-code-section__header {
+    margin-bottom: 44px;
+}
+
+.dress-code-section__eyebrow {
+    margin: 0 0 8px;
+
+    font-family:
+        var(--font-body);
+
+    font-size: 10px;
+
+    font-weight: 500;
+
+    text-transform: uppercase;
+
+    letter-spacing: 3.8px;
+
+    color:
+        #e0c995;
+}
+
+.dress-code-section__title {
+    margin: 0;
+
+    font-family:
+        var(--font-script);
+
+    font-size: 62px;
+
+    font-weight: 400;
+
+    line-height: 1;
+
+    color:
+        #f7f2e8;
+}
+
+.dress-code-section__ornament {
+    width: 150px;
+
+    margin:
+        22px auto 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 10px;
+
+    color:
+        #d9bd7d;
+}
+
+.dress-code-section__ornament span {
+    flex: 1;
+
+    height: 1px;
+
+    background:
+        linear-gradient(90deg,
+            transparent,
+            #d9bd7d);
+}
+
+.dress-code-section__ornament span:last-child {
+    transform:
+        rotate(180deg);
+}
+
+.dress-code-section__ornament i {
+    font-size: 7px;
+
+    font-style: normal;
+}
+
+.dress-code-section__formal {
+    margin:
+        18px 0 0;
+
+    font-family:
+        var(--font-display);
+
+    font-size: 16px;
+
+    font-weight: 500;
+
+    text-transform: uppercase;
+
+    letter-spacing: 5px;
+
+    color:
+        #f5efe4;
+}
+
+
+/* ============================
+   OPTIONS
+============================ */
+
+.dress-code-options {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap: 28px;
+
+    align-items: start;
+}
+
+
+/* ============================
+   INDIVIDUAL OPTION
+============================ */
+
+.dress-code-option {
+    min-width: 0;
+
+    text-align: center;
+}
+
+.dress-code-option__illustration {
+    width: 100%;
+    height: 245px;
+
+    margin:
+        0 auto 24px;
+
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+.dress-code-option__illustration-image {
+    display: block;
+
+    width: auto;
+    height: 100%;
+
+    max-width: 100%;
+    max-height: 100%;
+
+    object-fit: contain;
+
+    user-select: none;
+    pointer-events: none;
+}
+
+.dress-code-option__title {
+    margin: 0;
+
+    font-family:
+        var(--font-display);
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    text-transform: uppercase;
+
+    letter-spacing: 2.6px;
+
+    color:
+        #e0c995;
+}
+
+.dress-code-option__main {
+    margin:
+        9px 0 0;
+
+    font-family:
+        var(--font-display);
+
+    font-size: 20px;
+
+    font-weight: 400;
+
+    line-height: 1.15;
+
+    color:
+        #f7f2e8;
+}
+
+.dress-code-option__note {
+    margin:
+        12px auto 0;
+
+    font-family:
+        var(--font-body);
+
+    font-size: 10px;
+
+    font-weight: 300;
+
+    line-height: 1.55;
+
+    letter-spacing: 0.3px;
+
+    color:
+        rgba(247, 241, 230, 0.80);
+}
+
+
+/* ============================
+   FOOTER
+============================ */
+
+.dress-code-section__footer {
+    width: 160px;
+
+    margin:
+        42px auto 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 10px;
+
+    color:
+        #d9bd7d;
+}
+
+.dress-code-section__footer span {
+    flex: 1;
+
+    height: 1px;
+
+    background:
+        linear-gradient(90deg,
+            transparent,
+            #d9bd7d);
+}
+
+.dress-code-section__footer span:last-child {
+    transform:
+        rotate(180deg);
+}
+
+.dress-code-section__footer i {
+    font-style: normal;
+
+    font-size: 17px;
+}
+
+/* ============================
    MOBILE
 ============================ */
 
@@ -2251,6 +2534,32 @@ img {
         width: 64px;
     }
 
+    .dress-code-section {
+        padding:
+            58px 18px 70px;
+    }
+
+    .dress-code-section__title {
+        font-size: 58px;
+    }
+
+    .dress-code-options {
+        gap: 20px;
+    }
+
+    .dress-code-option__illustration {
+        height: 225px;
+    }
+
+    .dress-code-option__illustration--men .dress-code-option__illustration-image {
+        height: 108%;
+        max-height: none;
+    }
+
+    .dress-code-option__main {
+        font-size: 18px;
+    }
+
 }
 
 /* ============================
@@ -2260,14 +2569,16 @@ img {
 .welcome-section,
 .save-date-section,
 .countdown-section,
-.event-section {
+.event-section,
+.dress-code-section {
     display: none;
 }
 
 body.invitation-open .welcome-section,
 body.invitation-open .save-date-section,
 body.invitation-open .countdown-section,
-body.invitation-open .event-section {
+body.invitation-open .event-section,
+body.invitation-open .dress-code-section {
     display: block;
 }
 
