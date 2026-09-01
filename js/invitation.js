@@ -17,6 +17,21 @@ const musicIcon =
 
 console.log("Botón encontrado:", openInvitationButton);
 
+const heroGuest =
+    document.getElementById("heroGuest");
+
+window.invitationDataPromise
+    .then((data) => {
+
+        if (!data || !heroGuest) {
+            return;
+        }
+
+        heroGuest.textContent =
+            data.family;
+
+    });
+
 
 if (openInvitationButton) {
 
