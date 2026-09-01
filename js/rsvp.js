@@ -1,5 +1,11 @@
 (() => {
 
+    const rsvpFamily =
+        document.getElementById("rsvpFamily");
+
+    const rsvpPasses =
+        document.getElementById("rsvpPasses");
+
     const confirmButton =
         document.getElementById("rsvpConfirmButton");
 
@@ -58,13 +64,93 @@
        TEMPORARY DATA
     ============================ */
 
-    const invitation = {
-        family: "Familia Meza Gheno",
-        passes: 9
+    let invitation = {
+        token: null,
+        family: "",
+        passes: 0
     };
 
 
     let currentAction = null;
+
+    async function loadInvitation() {
+
+        const params =
+            new URLSearchParams(
+                window.location.search
+            );
+
+        const token =
+            params.get("i");
+
+
+        if (!token) {
+            console.warn(
+                "No se encontró token de invitación."
+            );
+
+            return;
+        }
+
+
+        try {
+
+            const response =
+                await fetch(
+                    `/.netlify/functions/getInvitation?i=${encodeURIComponent(token)}`
+                );
+
+
+            if (!response.ok) {
+                throw new Error(
+                    `Error HTTP ${response.status}`
+                );
+            }
+
+
+            const data =
+                await response.json();
+
+
+            invitation = {
+                token: data.token,
+                family: data.familia,
+                passes: data.pases
+            };
+
+
+            updateInvitationUI();
+
+
+        } catch (error) {
+
+            console.error(
+                "Error cargando invitación:",
+                error
+            );
+
+        }
+    }
+
+    function updateInvitationUI() {
+
+        if (rsvpFamily) {
+            rsvpFamily.textContent =
+                invitation.family;
+        }
+
+        if (rsvpPasses) {
+            rsvpPasses.textContent =
+                invitation.passes;
+        }
+
+
+        modalFamily.textContent =
+            invitation.family;
+
+        modalPasses.textContent =
+            invitation.passes;
+    }
 
 
     /* ============================
@@ -305,5 +391,7 @@
 
         }
     );
+
+    loadInvitation();
 
 })();
