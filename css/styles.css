@@ -410,15 +410,13 @@ img {
         24px 0 0;
 
     font-family:
-        var(--font-display);
+        var(--font-script);
 
-    font-size: 23px;
+    font-size: 34px;
 
-    font-weight: 500;
+    font-weight: 400;
 
-    line-height: 1.2;
-
-    letter-spacing: 0.4px;
+    line-height: 1;
 
     color:
         var(--color-olive-dark);
