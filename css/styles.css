@@ -2616,6 +2616,341 @@ img {
     font-style: normal;
 }
 
+/* ============================
+   RSVP SECTION
+============================ */
+
+.rsvp-section {
+    position: relative;
+
+    min-height: 100vh;
+
+    padding:
+        64px var(--section-padding-x) 76px;
+
+    background:
+        linear-gradient(180deg,
+            #68705a 0%,
+            #5d654f 100%);
+
+    color: #f7f1e6;
+
+    overflow: hidden;
+}
+
+.rsvp-section__content {
+    width: 100%;
+    max-width: 380px;
+
+    margin: 0 auto;
+
+    text-align: center;
+}
+
+
+/* ============================
+   HEADER
+============================ */
+
+.rsvp-section__header {
+    margin-bottom: 38px;
+}
+
+.rsvp-section__eyebrow {
+    margin: 0 0 8px;
+
+    font-family: var(--font-body);
+    font-size: 10px;
+    font-weight: 500;
+
+    text-transform: uppercase;
+
+    letter-spacing: 3.5px;
+
+    color: #e0c995;
+}
+
+.rsvp-section__title {
+    max-width: 330px;
+
+    margin: 0 auto;
+
+    font-family: var(--font-script);
+    font-size: 54px;
+    font-weight: 400;
+
+    line-height: 0.95;
+
+    color: #f7f2e8;
+}
+
+.rsvp-section__ornament {
+    width: 150px;
+
+    margin: 24px auto 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 10px;
+
+    color: #d9bd7d;
+}
+
+.rsvp-section__ornament span {
+    flex: 1;
+
+    height: 1px;
+
+    background:
+        linear-gradient(90deg,
+            transparent,
+            #d9bd7d);
+}
+
+.rsvp-section__ornament span:last-child {
+    transform: rotate(180deg);
+}
+
+.rsvp-section__ornament i {
+    font-size: 7px;
+    font-style: normal;
+}
+
+
+/* ============================
+   RSVP CARD
+============================ */
+
+.rsvp-card {
+    padding:
+        34px 24px 36px;
+
+    border:
+        1px solid rgba(237, 218, 178, 0.35);
+
+    border-radius: 4px;
+
+    background:
+        rgba(255, 255, 255, 0.07);
+
+    box-shadow:
+        0 12px 30px rgba(31, 35, 27, 0.14);
+}
+
+.rsvp-card__label {
+    margin: 0 0 8px;
+
+    font-family: var(--font-body);
+    font-size: 9px;
+    font-weight: 500;
+
+    text-transform: uppercase;
+
+    letter-spacing: 2.8px;
+
+    color:
+        rgba(247, 241, 230, 0.72);
+}
+
+.rsvp-card__family {
+    margin: 0;
+
+    font-family: var(--font-display);
+    font-size: 28px;
+    font-weight: 500;
+
+    line-height: 1.1;
+
+    color: #f7f2e8;
+}
+
+
+/* ============================
+   PASSES
+============================ */
+
+.rsvp-card__passes {
+    margin: 28px auto 0;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+}
+
+.rsvp-card__passes-number {
+    font-family: var(--font-script);
+    font-size: 72px;
+
+    line-height: 0.9;
+
+    color: #e0c995;
+}
+
+.rsvp-card__passes-label {
+    margin-top: 8px;
+
+    font-family: var(--font-body);
+    font-size: 10px;
+    font-weight: 500;
+
+    text-transform: uppercase;
+
+    letter-spacing: 2.5px;
+
+    color: #f7f1e6;
+}
+
+
+/* ============================
+   MESSAGE
+============================ */
+
+.rsvp-card__message {
+    max-width: 270px;
+
+    margin: 26px auto 0;
+
+    font-family: var(--font-body);
+    font-size: 11px;
+    font-weight: 300;
+
+    line-height: 1.65;
+
+    letter-spacing: 0.3px;
+
+    color:
+        rgba(247, 241, 230, 0.82);
+}
+
+
+/* ============================
+   ACTIONS
+============================ */
+
+.rsvp-card__actions {
+    margin-top: 30px;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 12px;
+}
+
+.rsvp-card__button {
+    width: 100%;
+
+    min-height: 44px;
+
+    padding: 12px 20px;
+
+    border-radius: 999px;
+
+    font-family: var(--font-body);
+    font-size: 10px;
+    font-weight: 500;
+
+    text-transform: uppercase;
+
+    letter-spacing: 1.8px;
+
+    cursor: pointer;
+
+    transition:
+        transform 180ms ease,
+        background 180ms ease,
+        color 180ms ease;
+}
+
+.rsvp-card__button:hover {
+    transform: translateY(-2px);
+}
+
+.rsvp-card__button--confirm {
+    border: 1px solid #d9bd7d;
+
+    background: #d9bd7d;
+
+    color: #4f5a45;
+}
+
+.rsvp-card__button--confirm:hover {
+    background: #e5cf9b;
+}
+
+.rsvp-card__button--decline {
+    border:
+        1px solid rgba(247, 241, 230, 0.42);
+
+    background: transparent;
+
+    color:
+        rgba(247, 241, 230, 0.82);
+}
+
+.rsvp-card__button--decline:hover {
+    background:
+        rgba(255, 255, 255, 0.08);
+}
+
+
+/* ============================
+   NOTE + FOOTER
+============================ */
+
+.rsvp-section__note {
+    max-width: 280px;
+
+    margin: 28px auto 0;
+
+    font-family: var(--font-body);
+    font-size: 9px;
+    font-weight: 300;
+
+    line-height: 1.6;
+
+    letter-spacing: 0.6px;
+
+    color:
+        rgba(247, 241, 230, 0.68);
+}
+
+.rsvp-section__footer {
+    width: 150px;
+
+    margin: 36px auto 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 10px;
+
+    color: #d9bd7d;
+}
+
+.rsvp-section__footer span {
+    flex: 1;
+
+    height: 1px;
+
+    background:
+        linear-gradient(90deg,
+            transparent,
+            #d9bd7d);
+}
+
+.rsvp-section__footer span:last-child {
+    transform: rotate(180deg);
+}
+
+.rsvp-section__footer i {
+    font-size: 15px;
+    font-style: normal;
+}
+
 
 /* ============================
    MOBILE
@@ -2623,24 +2958,370 @@ img {
 
 @media (max-width: 430px) {
 
-    .adults-only-section {
+    .rsvp-section {
         padding:
             58px 18px 70px;
     }
 
-    .adults-only-section__title {
-        font-size: 56px;
+    .rsvp-section__title {
+        font-size: 50px;
     }
 
-    .adults-only-section__illustration {
-        height: 220px;
+    .rsvp-card {
+        padding:
+            32px 22px 34px;
     }
 
-    .adults-only-section__highlight {
-        font-size: 24px;
+    .rsvp-card__passes-number {
+        font-size: 68px;
+    }
+
+    .rsvp-section__note strong {
+        display: block;
+        margin-top: 5px;
+
+        font-size: 13px;
+        font-weight: 600;
+        letter-spacing: 1px;
+
+        color: #e0c995;
     }
 
 }
+
+/* ============================
+   RSVP MODAL
+============================ */
+
+.rsvp-modal {
+    position: fixed;
+    inset: 0;
+
+    z-index: 9999;
+
+    display: none;
+    align-items: center;
+    justify-content: center;
+
+    padding: 22px;
+}
+
+.rsvp-modal.is-open {
+    display: flex;
+}
+
+.rsvp-modal__backdrop {
+    position: absolute;
+    inset: 0;
+
+    background:
+        rgba(30, 34, 26, 0.72);
+
+    backdrop-filter: blur(4px);
+}
+
+.rsvp-modal__dialog {
+    position: relative;
+
+    z-index: 1;
+
+    width: 100%;
+    max-width: 360px;
+
+    padding:
+        34px 26px 30px;
+
+    border:
+        1px solid rgba(185, 154, 91, 0.45);
+
+    border-radius: 6px;
+
+    background:
+        linear-gradient(
+            180deg,
+            #eee3d2 0%,
+            #e6d7c1 100%
+        );
+
+    box-shadow:
+        0 20px 50px rgba(20, 23, 18, 0.28);
+
+    text-align: center;
+}
+
+.rsvp-modal__close {
+    position: absolute;
+
+    top: 12px;
+    right: 14px;
+
+    width: 32px;
+    height: 32px;
+
+    border: 0;
+    background: transparent;
+
+    font-family: var(--font-display);
+    font-size: 28px;
+    line-height: 1;
+
+    color:
+        var(--color-olive-dark);
+
+    cursor: pointer;
+}
+
+.rsvp-modal__eyebrow {
+    margin: 0 0 8px;
+
+    font-family:
+        var(--font-body);
+
+    font-size: 9px;
+    font-weight: 500;
+
+    text-transform: uppercase;
+
+    letter-spacing: 3px;
+
+    color:
+        var(--color-gold-dark);
+}
+
+.rsvp-modal__title {
+    margin: 0;
+
+    font-family:
+        var(--font-script);
+
+    font-size: 46px;
+    font-weight: 400;
+
+    line-height: 1;
+
+    color:
+        var(--color-olive-dark);
+}
+
+.rsvp-modal__ornament {
+    width: 130px;
+
+    margin:
+        20px auto 24px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 9px;
+
+    color:
+        var(--color-gold);
+}
+
+.rsvp-modal__ornament span {
+    flex: 1;
+
+    height: 1px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            var(--color-gold)
+        );
+}
+
+.rsvp-modal__ornament span:last-child {
+    transform:
+        rotate(180deg);
+}
+
+.rsvp-modal__ornament i {
+    font-size: 7px;
+    font-style: normal;
+}
+
+
+/* ============================
+   MODAL CONTENT
+============================ */
+
+.rsvp-modal__family {
+    margin: 0;
+
+    font-family:
+        var(--font-display);
+
+    font-size: 24px;
+    font-weight: 500;
+
+    line-height: 1.15;
+
+    color:
+        var(--color-olive-dark);
+}
+
+.rsvp-modal__passes {
+    margin-top: 24px;
+}
+
+.rsvp-modal__passes-text {
+    margin: 0;
+
+    font-family:
+        var(--font-body);
+
+    font-size: 10px;
+    font-weight: 400;
+
+    letter-spacing: 0.4px;
+
+    color:
+        var(--color-text-muted);
+}
+
+.rsvp-modal__passes-number {
+    display: block;
+
+    margin-top: 10px;
+
+    font-family:
+        var(--font-script);
+
+    font-size: 62px;
+
+    line-height: 0.9;
+
+    color:
+        var(--color-gold-dark);
+}
+
+.rsvp-modal__passes-label {
+    display: block;
+
+    margin-top: 6px;
+
+    font-family:
+        var(--font-body);
+
+    font-size: 9px;
+    font-weight: 600;
+
+    text-transform: uppercase;
+
+    letter-spacing: 2.4px;
+
+    color:
+        var(--color-olive-dark);
+}
+
+.rsvp-modal__message {
+    max-width: 270px;
+
+    margin:
+        24px auto 0;
+
+    font-family:
+        var(--font-body);
+
+    font-size: 11px;
+    font-weight: 400;
+
+    line-height: 1.55;
+
+    color:
+        var(--color-text-muted);
+}
+
+
+/* ============================
+   MODAL ACTIONS
+============================ */
+
+.rsvp-modal__actions {
+    margin-top: 26px;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 10px;
+}
+
+.rsvp-modal__button {
+    width: 100%;
+
+    min-height: 42px;
+
+    padding:
+        11px 18px;
+
+    border-radius: 999px;
+
+    font-family:
+        var(--font-body);
+
+    font-size: 9px;
+    font-weight: 600;
+
+    text-transform: uppercase;
+
+    letter-spacing: 1.8px;
+
+    cursor: pointer;
+
+    transition:
+        transform 180ms ease,
+        background 180ms ease;
+}
+
+.rsvp-modal__button:hover {
+    transform:
+        translateY(-1px);
+}
+
+.rsvp-modal__button--primary {
+    border:
+        1px solid var(--color-olive);
+
+    background:
+        var(--color-olive);
+
+    color:
+        #f7f1e6;
+}
+
+.rsvp-modal__button--primary:hover {
+    background:
+        var(--color-olive-dark);
+}
+
+.rsvp-modal__button--secondary {
+    border:
+        1px solid rgba(89, 101, 78, 0.35);
+
+    background:
+        transparent;
+
+    color:
+        var(--color-olive-dark);
+}
+
+
+/* ============================
+   MODAL RESULT STATE
+============================ */
+
+.rsvp-modal__body.is-result
+.rsvp-modal__passes {
+    display: none;
+}
+
+.rsvp-modal__body.is-result
+.rsvp-modal__actions {
+    margin-top: 22px;
+}
+
 
 /* ============================
    MOBILE
@@ -2807,6 +3488,38 @@ img {
         font-size: 18px;
     }
 
+    .adults-only-section {
+        padding:
+            58px 18px 70px;
+    }
+
+    .adults-only-section__title {
+        font-size: 56px;
+    }
+
+    .adults-only-section__illustration {
+        height: 220px;
+    }
+
+    .adults-only-section__highlight {
+        font-size: 24px;
+    }
+
+    .rsvp-modal {
+        padding: 18px;
+    }
+
+    .rsvp-modal__dialog {
+        padding:
+            32px 22px 28px;
+    }
+
+    .rsvp-modal__title {
+        font-size: 42px;
+    }
+
+
+
 }
 
 /* ============================
@@ -2818,7 +3531,8 @@ img {
 .countdown-section,
 .event-section,
 .dress-code-section,
-.adults-only-section {
+.adults-only-section,
+.rsvp-section {
     display: none;
 }
 
@@ -2827,7 +3541,8 @@ body.invitation-open .save-date-section,
 body.invitation-open .countdown-section,
 body.invitation-open .event-section,
 body.invitation-open .dress-code-section,
-body.invitation-open .adults-only-section {
+body.invitation-open .adults-only-section,
+body.invitation-open .rsvp-section {
     display: block;
 }
 

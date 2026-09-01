@@ -634,13 +634,168 @@
 
         </section>
 
+        <!-- Modulo RSVP -->
+
+        <section class="rsvp-section" id="rsvp">
+
+            <div class="rsvp-section__content">
+
+                <header class="rsvp-section__header">
+
+                    <p class="rsvp-section__eyebrow">
+                        Queremos celebrar contigo
+                    </p>
+
+                    <h2 class="rsvp-section__title">
+                        Confirma tu asistencia
+                    </h2>
+
+                    <div class="rsvp-section__ornament" aria-hidden="true">
+                        <span></span>
+                        <i>◆</i>
+                        <span></span>
+                    </div>
+
+                </header>
+
+
+                <div class="rsvp-card">
+
+                    <p class="rsvp-card__label">
+                        Invitación para
+                    </p>
+
+                    <h3 class="rsvp-card__family">
+                        Familia Meza Gheno
+                    </h3>
+
+                    <div class="rsvp-card__passes">
+
+                        <span class="rsvp-card__passes-number">
+                            9
+                        </span>
+
+                        <span class="rsvp-card__passes-label">
+                            pases reservados
+                        </span>
+
+                    </div>
+
+                    <p class="rsvp-card__message">
+                        Esperamos contar con ustedes
+                        en este día tan especial.
+                    </p>
+
+                    <div class="rsvp-card__actions">
+
+                        <button type="button" class="rsvp-card__button rsvp-card__button--confirm"
+                            id="rsvpConfirmButton">
+                            Confirmar asistencia
+                        </button>
+
+                        <button type="button" class="rsvp-card__button rsvp-card__button--decline"
+                            id="rsvpDeclineButton">
+                            No podremos asistir
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <p class="rsvp-section__note">
+                    Agradecemos confirmar tu asistencia antes del
+                    <strong>10 DE NOVIEMBRE</strong>
+                </p>
+
+                <div class="rsvp-section__footer" aria-hidden="true">
+                    <span></span>
+                    <i>♡</i>
+                    <span></span>
+                </div>
+
+            </div>
+
+        </section>
+
 
     </main>
+
+    <div class="rsvp-modal" id="rsvpModal" aria-hidden="true">
+
+        <div class="rsvp-modal__backdrop" id="rsvpModalBackdrop"></div>
+
+        <div class="rsvp-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="rsvpModalTitle">
+
+            <button type="button" class="rsvp-modal__close" id="rsvpModalClose" aria-label="Cerrar">
+                ×
+            </button>
+
+
+            <p class="rsvp-modal__eyebrow" id="rsvpModalEyebrow">
+                Confirmación
+            </p>
+
+            <h2 class="rsvp-modal__title" id="rsvpModalTitle">
+                Confirmar asistencia
+            </h2>
+
+            <div class="rsvp-modal__ornament" aria-hidden="true">
+                <span></span>
+                <i>◆</i>
+                <span></span>
+            </div>
+
+
+            <div class="rsvp-modal__body">
+
+                <p class="rsvp-modal__family" id="rsvpModalFamily">
+                    Familia Meza Gheno
+                </p>
+
+                <div class="rsvp-modal__passes" id="rsvpModalPassesBlock">
+                    <p class="rsvp-modal__passes-text">
+                        Esta invitación cuenta con
+                    </p>
+
+                    <span class="rsvp-modal__passes-number" id="rsvpModalPasses">
+                        9
+                    </span>
+
+                    <span class="rsvp-modal__passes-label">
+                        pases
+                    </span>
+                </div>
+
+
+                <p class="rsvp-modal__message" id="rsvpModalMessage">
+                    ¿Deseas confirmar tu asistencia?
+                </p>
+
+
+                <div class="rsvp-modal__actions">
+
+                    <button type="button" class="rsvp-modal__button rsvp-modal__button--primary" id="rsvpModalConfirm">
+                        Sí, confirmar
+                    </button>
+
+                    <button type="button" class="rsvp-modal__button rsvp-modal__button--secondary" id="rsvpModalCancel">
+                        Cancelar
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
 
     <script src="./js/config.js"></script>
     <script src="./js/invitation.js"></script>
     <script src="./js/music.js"></script>
     <script src="./js/countdown.js"></script>
+    <script src="./js/rsvp.js"></script>
 </body>
 
 </html>

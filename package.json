@@ -1,0 +1,24 @@
+{
+  "name": "bodachorizo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/huguin08/bodaChorizo.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/huguin08/bodaChorizo/issues"
+  },
+  "homepage": "https://github.com/huguin08/bodaChorizo#readme",
+  "dependencies": {
+    "googleapis": "^178.0.0"
+  }
+}
