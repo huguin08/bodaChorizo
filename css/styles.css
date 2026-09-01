@@ -407,23 +407,22 @@ img {
 
 .hero__guest {
     margin:
-        16px 0 0;
+        24px 0 0;
 
     font-family:
         var(--font-display);
 
-    font-size: 22px;
+    font-size: 23px;
 
     font-weight: 500;
 
     line-height: 1.2;
 
-    letter-spacing: 0.5px;
+    letter-spacing: 0.4px;
 
     color:
         var(--color-olive-dark);
 }
-
 
 /* ============================
    ORNAMENTAL DIVIDER
@@ -3060,11 +3059,9 @@ img {
     border-radius: 6px;
 
     background:
-        linear-gradient(
-            180deg,
+        linear-gradient(180deg,
             #eee3d2 0%,
-            #e6d7c1 100%
-        );
+            #e6d7c1 100%);
 
     box-shadow:
         0 20px 50px rgba(20, 23, 18, 0.28);
@@ -3148,11 +3145,9 @@ img {
     height: 1px;
 
     background:
-        linear-gradient(
-            90deg,
+        linear-gradient(90deg,
             transparent,
-            var(--color-gold)
-        );
+            var(--color-gold));
 }
 
 .rsvp-modal__ornament span:last-child {
@@ -3335,13 +3330,11 @@ img {
    MODAL RESULT STATE
 ============================ */
 
-.rsvp-modal__body.is-result
-.rsvp-modal__passes {
+.rsvp-modal__body.is-result .rsvp-modal__passes {
     display: none;
 }
 
-.rsvp-modal__body.is-result
-.rsvp-modal__actions {
+.rsvp-modal__body.is-result .rsvp-modal__actions {
     margin-top: 22px;
 }
 
