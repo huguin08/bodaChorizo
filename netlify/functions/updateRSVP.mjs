@@ -2,7 +2,7 @@ import { google } from "googleapis";
 
 const RSVP_DEADLINE =
     new Date(
-        "2026-08-10T23:59:59-06:00"
+        "2026-11-10T23:59:59-06:00"
     );
 
 export async function handler(event) {
