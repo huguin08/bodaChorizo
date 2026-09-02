@@ -2034,6 +2034,126 @@ img {
         var(--color-text-muted);
 }
 
+.event-card__lodging {
+    width: min(100%, 520px);
+    margin: 44px auto 0;
+    padding-top: 34px;
+    text-align: center;
+}
+
+.event-card__lodging-separator {
+    width: 54px;
+    height: 1px;
+    margin: 0 auto 26px;
+    background: var(--color-gold);
+    opacity: 0.7;
+}
+
+.event-card__lodging-eyebrow {
+    margin: 0 0 8px;
+
+    font-family: var(--font-body);
+    font-size: 12px;
+    font-weight: 500;
+
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+
+    color: var(--color-gold-dark);
+}
+
+.event-card__lodging-title {
+    margin: 0 0 18px;
+
+    font-family: var(--font-display);
+    font-size: 30px;
+    font-weight: 500;
+    line-height: 1.1;
+
+    color: var(--color-olive-dark);
+}
+
+.event-card__lodging-text {
+    max-width: 430px;
+    margin: 0 auto 14px;
+
+    font-family: var(--font-body);
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 1.7;
+
+    color: var(--color-text-muted);
+}
+
+.event-card__lodging-text strong {
+    font-weight: 500;
+    color: var(--color-olive-dark);
+}
+
+.event-card__lodging-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 46px;
+    margin-top: 14px;
+    padding: 0 28px;
+
+    border: 1px solid var(--color-olive-dark);
+    border-radius: 999px;
+
+    font-family: var(--font-body);
+    font-size: 12px;
+    font-weight: 500;
+
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    text-decoration: none;
+
+    color: var(--color-beige-light);
+    background: var(--color-olive-dark);
+
+    transition:
+        background-color 0.25s ease,
+        color 0.25s ease,
+        transform 0.25s ease;
+}
+
+.event-card__lodging-button:hover {
+    background: transparent;
+    color: var(--color-olive-dark);
+    transform: translateY(-1px);
+}
+
+.event-card__lodging-links {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    margin-top: 18px;
+
+    font-family: var(--font-body);
+    font-size: 12px;
+
+    color: var(--color-gold-dark);
+}
+
+.event-card__lodging-links a {
+    color: var(--color-olive-dark);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+
+    transition:
+        border-color 0.2s ease,
+        color 0.2s ease;
+}
+
+.event-card__lodging-links a:hover {
+    color: var(--color-gold-dark);
+    border-bottom-color: currentColor;
+}
+
 
 /* ============================
    LOCATION BUTTON
@@ -3532,7 +3652,28 @@ img {
         font-size: 42px;
     }
 
+    .event-card__lodging {
+    margin-top: 38px;
+    padding-top: 30px;
+}
 
+.event-card__lodging-title {
+    font-size: 27px;
+}
+
+.event-card__lodging-text {
+    font-size: 13px;
+}
+
+.event-card__lodging-button {
+    width: 100%;
+    max-width: 300px;
+    padding-inline: 20px;
+}
+
+.event-card__lodging-links {
+    flex-wrap: wrap;
+}
 
 }
 
