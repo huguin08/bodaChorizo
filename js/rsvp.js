@@ -77,7 +77,8 @@
     let invitation = {
         token: null,
         family: "",
-        passes: 0
+        passes: 0,
+        status: null
     };
 
 
@@ -101,6 +102,47 @@
 
         modalPasses.textContent =
             invitation.passes;
+
+        updateRSVPButtons();
+    }
+
+    function updateRSVPButtons() {
+
+        // Estado normal por defecto
+        rsvpConfirmButton.disabled = false;
+        rsvpDeclineButton.disabled = false;
+
+        rsvpConfirmButton.textContent =
+            "Confirmar asistencia";
+
+        rsvpDeclineButton.textContent =
+            "No podremos asistir";
+
+
+        if (
+            invitation.status ===
+            "CONFIRMADO"
+        ) {
+
+            rsvpConfirmButton.disabled =
+                true;
+
+            rsvpConfirmButton.textContent =
+                "Asistencia confirmada";
+        }
+
+
+        if (
+            invitation.status ===
+            "NO_ASISTE"
+        ) {
+
+            rsvpDeclineButton.disabled =
+                true;
+
+            rsvpDeclineButton.textContent =
+                "Respuesta registrada";
+        }
     }
 
     function isRSVPClosed() {
@@ -354,6 +396,11 @@
                     "No se pudo guardar la confirmación"
                 );
             }
+
+            invitation.status =
+                data.estado;
+
+            updateRSVPButtons();
 
 
             showResult();

@@ -88,6 +88,32 @@ export async function handler(event) {
             };
         }
 
+        const confirmationsResponse =
+            await sheets.spreadsheets.values.get({
+                spreadsheetId:
+                    process.env.GOOGLE_SHEET_ID,
+
+                range:
+                    "Confirmaciones!A2:E"
+            });
+
+
+        const confirmationRows =
+            confirmationsResponse.data.values || [];
+
+
+        const confirmation =
+            confirmationRows.find(
+                row =>
+                    row[0] === token
+            );
+
+
+        const estado =
+            confirmation
+                ? confirmation[3]
+                : null;
+
 
         return {
             statusCode: 200,
@@ -101,7 +127,8 @@ export async function handler(event) {
                 token: sheetToken,
                 familia,
                 pases:
-                    Number(pases)
+                    Number(pases),
+                estado
             })
         };
 

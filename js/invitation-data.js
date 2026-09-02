@@ -37,7 +37,8 @@
             return {
                 token: data.token,
                 family: data.familia,
-                passes: data.pases
+                passes: data.pases,
+                status: data.estado
             };
 
         } catch (error) {
