@@ -330,7 +330,7 @@
         modalMessage.textContent =
             "Ocurrió un error al guardar tu respuesta. Por favor intenta nuevamente.";
     }
-}f
+}
 
 
     /* ============================
