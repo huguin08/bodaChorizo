@@ -265,6 +265,73 @@
             "result";
     }
 
+    async function saveRSVP(status) {
+
+    try {
+
+        modalConfirm.disabled = true;
+
+        modalConfirm.textContent =
+            "Guardando...";
+
+
+        const response =
+            await fetch(
+                "/.netlify/functions/updateRSVP",
+                {
+                    method: "POST",
+
+                    headers: {
+                        "Content-Type":
+                            "application/json"
+                    },
+
+                    body: JSON.stringify({
+                        token:
+                            invitation.token,
+
+                        estado:
+                            status
+                    })
+                }
+            );
+
+
+        const data =
+            await response.json();
+
+
+        if (!response.ok) {
+            throw new Error(
+                data.error ||
+                "No se pudo guardar la confirmación"
+            );
+        }
+
+
+        showResult();
+
+
+    } catch (error) {
+
+        console.error(
+            "Error guardando RSVP:",
+            error
+        );
+
+
+        modalConfirm.disabled =
+            false;
+
+        modalConfirm.textContent =
+            "Intentar nuevamente";
+
+
+        modalMessage.textContent =
+            "Ocurrió un error al guardar tu respuesta. Por favor intenta nuevamente.";
+    }
+}f
+
 
     /* ============================
        EVENTS
@@ -283,20 +350,40 @@
 
 
     modalConfirm.addEventListener(
-        "click",
-        () => {
+    "click",
+    async () => {
 
-            if (
-                currentAction ===
-                "result"
-            ) {
-                closeModal();
-                return;
-            }
-
-            showResult();
+        if (
+            currentAction ===
+            "result"
+        ) {
+            closeModal();
+            return;
         }
-    );
+
+
+        if (
+            currentAction ===
+            "confirm"
+        ) {
+            await saveRSVP(
+                "CONFIRMADO"
+            );
+
+            return;
+        }
+
+
+        if (
+            currentAction ===
+            "decline"
+        ) {
+            await saveRSVP(
+                "NO_ASISTE"
+            );
+        }
+    }
+);
 
 
     modalCancel.addEventListener(
