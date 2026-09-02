@@ -1,5 +1,10 @@
 import { google } from "googleapis";
 
+const RSVP_DEADLINE =
+    new Date(
+        "2026-08-10T23:59:59-06:00"
+    );
+
 export async function handler(event) {
 
     if (event.httpMethod !== "POST") {
@@ -7,6 +12,26 @@ export async function handler(event) {
             statusCode: 405,
             body: JSON.stringify({
                 error: "Método no permitido"
+            })
+        };
+    }
+
+    if (
+        new Date() >
+        RSVP_DEADLINE
+    ) {
+
+        return {
+            statusCode: 403,
+
+            headers: {
+                "Content-Type":
+                    "application/json"
+            },
+
+            body: JSON.stringify({
+                error:
+                    "El periodo de confirmación ha finalizado"
             })
         };
     }

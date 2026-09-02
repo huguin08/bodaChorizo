@@ -50,6 +50,16 @@
     const modalBody =
         document.querySelector(".rsvp-modal__body");
 
+    const RSVP_DEADLINE =
+        new Date(
+            "2026-08-10T23:59:59-06:00"
+        );
+
+    const deadlineNote =
+        document.getElementById(
+            "rsvpDeadlineNote"
+        );
+
 
     if (
         !confirmButton ||
@@ -91,6 +101,40 @@
 
         modalPasses.textContent =
             invitation.passes;
+    }
+
+    function isRSVPClosed() {
+
+        return new Date() >
+            RSVP_DEADLINE;
+    }
+
+    function applyDeadlineState() {
+
+        if (!isRSVPClosed()) {
+            return;
+        }
+
+
+        confirmButton.disabled =
+            true;
+
+        declineButton.disabled =
+            true;
+
+
+        confirmButton.textContent =
+            "Confirmación cerrada";
+
+        declineButton.style.display =
+            "none";
+
+
+        if (deadlineNote) {
+
+            deadlineNote.innerHTML =
+                "El periodo para confirmar asistencia <strong>ha finalizado</strong>.";
+        }
     }
 
 
@@ -433,6 +477,8 @@
             invitation = data;
 
             updateInvitationUI();
+
+            applyDeadlineState();
 
         });
 
