@@ -40,7 +40,8 @@ export async function handler(event) {
 
         const {
             token,
-            estado
+            estado,
+            asistentes = []
         } = JSON.parse(
             event.body || "{}"
         );
@@ -71,6 +72,21 @@ export async function handler(event) {
                 statusCode: 400,
                 body: JSON.stringify({
                     error: "Estado inválido"
+                })
+            };
+        }
+
+
+        if (
+            !Array.isArray(
+                asistentes
+            )
+        ) {
+            return {
+                statusCode: 400,
+                body: JSON.stringify({
+                    error:
+                        "La lista de asistentes es inválida"
                 })
             };
         }
@@ -176,8 +192,125 @@ export async function handler(event) {
         }
 
 
+        const totalPases =
+            Number(pases);
+
+
         /*
-         * 2. Revisamos si ya existe una confirmación
+         * 2. Consultamos los integrantes
+         * asociados a este token.
+         */
+
+        const membersResponse =
+            await sheets.spreadsheets.values.get({
+                spreadsheetId:
+                    process.env.GOOGLE_SHEET_ID,
+
+                range:
+                    "Integrantes!A2:B"
+            });
+
+
+        const memberRows =
+            membersResponse
+                .data
+                .values || [];
+
+
+        const integrantes =
+            memberRows
+                .filter(
+                    row =>
+                        row[0] === token
+                )
+                .map(
+                    row =>
+                        row[1]
+                )
+                .filter(Boolean);
+
+
+        /*
+         * 3. Preparamos y validamos asistentes.
+         */
+
+        let asistentesValidos = [];
+
+
+        if (
+            estado === "CONFIRMADO"
+        ) {
+
+            if (
+                asistentes.length === 0
+            ) {
+                return {
+                    statusCode: 400,
+                    body: JSON.stringify({
+                        error:
+                            "Debes seleccionar al menos un asistente"
+                    })
+                };
+            }
+
+
+            /*
+             * Eliminamos nombres duplicados.
+             */
+            asistentesValidos =
+                [...new Set(
+                    asistentes
+                )];
+
+
+            if (
+                asistentesValidos.length >
+                totalPases
+            ) {
+                return {
+                    statusCode: 400,
+                    body: JSON.stringify({
+                        error:
+                            "El número de asistentes supera los pases disponibles"
+                    })
+                };
+            }
+
+
+            const invalidAttendee =
+                asistentesValidos.find(
+                    nombre =>
+                        !integrantes.includes(
+                            nombre
+                        )
+                );
+
+
+            if (
+                invalidAttendee
+            ) {
+                return {
+                    statusCode: 400,
+                    body: JSON.stringify({
+                        error:
+                            "Uno o más asistentes no pertenecen a esta invitación"
+                    })
+                };
+            }
+
+        } else {
+
+            /*
+             * Si nadie asistirá, no conservamos
+             * asistentes anteriores.
+             */
+            asistentesValidos =
+                [];
+        }
+
+
+        /*
+         * 4. Revisamos si ya existe una confirmación
          * para ese token.
          */
 
@@ -187,7 +320,7 @@ export async function handler(event) {
                     process.env.GOOGLE_SHEET_ID,
 
                 range:
-                    "Confirmaciones!A2:E"
+                    "Confirmaciones!A2:F"
             });
 
 
@@ -209,17 +342,29 @@ export async function handler(event) {
                 .toISOString();
 
 
+        /*
+         * Guardamos asistentes como JSON
+         * en una sola celda.
+         */
+
+        const asistentesJson =
+            JSON.stringify(
+                asistentesValidos
+            );
+
+
         const values = [
             sheetToken,
             familia,
-            Number(pases),
+            totalPases,
+            asistentesJson,
             estado,
             confirmationDate
         ];
 
 
         /*
-         * 3. Si ya existe, actualizamos.
+         * 5. Si ya existe, actualizamos.
          * Si no, agregamos.
          */
 
@@ -234,7 +379,7 @@ export async function handler(event) {
                     process.env.GOOGLE_SHEET_ID,
 
                 range:
-                    `Confirmaciones!A${sheetRow}:E${sheetRow}`,
+                    `Confirmaciones!A${sheetRow}:F${sheetRow}`,
 
                 valueInputOption:
                     "RAW",
@@ -253,7 +398,7 @@ export async function handler(event) {
                     process.env.GOOGLE_SHEET_ID,
 
                 range:
-                    "Confirmaciones!A:E",
+                    "Confirmaciones!A:F",
 
                 valueInputOption:
                     "RAW",
@@ -272,16 +417,21 @@ export async function handler(event) {
 
         return {
             statusCode: 200,
+
             headers: {
                 "Content-Type":
                     "application/json"
             },
+
             body: JSON.stringify({
                 success: true,
-                token: sheetToken,
+                token:
+                    sheetToken,
                 familia,
                 pases:
-                    Number(pases),
+                    totalPases,
+                asistentes:
+                    asistentesValidos,
                 estado,
                 fecha_confirmacion:
                     confirmationDate
@@ -299,6 +449,7 @@ export async function handler(event) {
 
         return {
             statusCode: 500,
+
             body: JSON.stringify({
                 error:
                     "Error al guardar la confirmación"

@@ -38,7 +38,9 @@
                 token: data.token,
                 family: data.familia,
                 passes: data.pases,
-                status: data.estado
+                members: data.integrantes || [],
+                status: data.estado,
+                attendees: data.asistentes || []
             };
 
         } catch (error) {
