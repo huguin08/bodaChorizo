@@ -3172,6 +3172,15 @@ img {
     width: 100%;
     max-width: 360px;
 
+    max-height:
+        calc(100vh - 36px);
+
+    overflow-y:
+        auto;
+
+    overscroll-behavior:
+        contain;
+
     padding:
         34px 26px 30px;
 
@@ -3186,7 +3195,7 @@ img {
             #e6d7c1 100%);
 
     box-shadow:
-        0 20px 50px rgba(20, 23, 18, 0.28);
+        0 20px 50px rgba(20, 23, 18, 0.28);    
 
     text-align: center;
 }
@@ -3372,6 +3381,196 @@ img {
 
     color:
         var(--color-text-muted);
+}
+
+/* ============================
+   RSVP MEMBERS
+============================ */
+
+.rsvp-modal__members {
+    width: 100%;
+
+    margin:
+        18px auto 0;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 7px;
+
+    text-align: left;
+}
+
+
+/* ============================
+   MEMBER OPTION
+============================ */
+
+.rsvp-modal__member {
+    position: relative;
+
+    width: 100%;
+    min-height: 46px;
+
+    padding:
+        10px 12px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 11px;
+
+    border:
+        1px solid rgba(89, 101, 78, 0.18);
+
+    border-radius: 5px;
+
+    background:
+        rgba(255, 255, 255, 0.20);
+
+    cursor: pointer;
+
+    transition:
+        background 180ms ease,
+        border-color 180ms ease,
+        transform 180ms ease;
+}
+
+
+.rsvp-modal__member:hover {
+    background:
+        rgba(255, 255, 255, 0.34);
+
+    border-color:
+        rgba(89, 101, 78, 0.32);
+}
+
+
+/* ============================
+   CUSTOM CHECKBOX
+============================ */
+
+.rsvp-modal__member input {
+    appearance: none;
+    -webkit-appearance: none;
+
+    flex:
+        0 0 20px;
+
+    width: 20px;
+    height: 20px;
+
+    margin: 0;
+
+    display: grid;
+    place-content: center;
+
+    border:
+        1px solid rgba(79, 90, 69, 0.65);
+
+    border-radius: 3px;
+
+    background:
+        rgba(255, 255, 255, 0.34);
+
+    cursor: pointer;
+
+    transition:
+        background 160ms ease,
+        border-color 160ms ease;
+}
+
+
+.rsvp-modal__member input::before {
+    content: "✓";
+
+    font-family:
+        var(--font-body);
+
+    font-size: 13px;
+    font-weight: 600;
+
+    line-height: 1;
+
+    color:
+        #f7f1e6;
+
+    transform:
+        scale(0);
+
+    transition:
+        transform 140ms ease;
+}
+
+
+.rsvp-modal__member input:checked {
+    background:
+        var(--color-olive);
+
+    border-color:
+        var(--color-olive);
+}
+
+
+.rsvp-modal__member input:checked::before {
+    transform:
+        scale(1);
+}
+
+
+/* ============================
+   MEMBER NAME
+============================ */
+
+.rsvp-modal__member span {
+    min-width: 0;
+
+    font-family:
+        var(--font-body);
+
+    font-size: 12px;
+    font-weight: 400;
+
+    line-height: 1.35;
+
+    color:
+        var(--color-olive-dark);
+}
+
+
+/* fila seleccionada */
+
+.rsvp-modal__member:has(input:checked) {
+    border-color:
+        rgba(89, 101, 78, 0.42);
+
+    background:
+        rgba(89, 101, 78, 0.08);
+}
+
+
+/* ============================
+   ATTENDEE COUNTER
+============================ */
+
+.rsvp-modal__members-count {
+    margin:
+        14px 0 0;
+
+    font-family:
+        var(--font-body);
+
+    font-size: 9px;
+    font-weight: 600;
+
+    text-align: center;
+
+    text-transform: uppercase;
+
+    letter-spacing: 1.5px;
+
+    color:
+        var(--color-gold-dark);
 }
 
 

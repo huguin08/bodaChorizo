@@ -56,6 +56,15 @@
     modalMembers.className =
         "rsvp-modal__members";
 
+    const modalMembersCount =
+        document.createElement("p");
+
+    modalMembersCount.className =
+        "rsvp-modal__members-count";
+
+    modalMembersCount.style.display =
+        "none";
+
     modalMembers.style.display =
         "none";
 
@@ -63,6 +72,12 @@
         "afterend",
         modalMembers
     );
+
+    modalMembers.insertAdjacentElement(
+        "afterend",
+        modalMembersCount
+    );
+
 
     const RSVP_DEADLINE =
         new Date(
@@ -125,13 +140,13 @@
     function updateRSVPButtons() {
 
         // Estado normal por defecto
-        rsvpConfirmButton.disabled = false;
-        rsvpDeclineButton.disabled = false;
+        confirmButton.disabled = false;
+        declineButton.disabled = false;
 
-        rsvpConfirmButton.textContent =
+        confirmButton.textContent =
             "Confirmar asistencia";
 
-        rsvpDeclineButton.textContent =
+        declineButton.textContent =
             "No podremos asistir";
 
 
@@ -140,10 +155,10 @@
             "CONFIRMADO"
         ) {
 
-            rsvpConfirmButton.disabled =
+            confirmButton.disabled =
                 false;
 
-            rsvpConfirmButton.textContent =
+            confirmButton.textContent =
                 "Modificar asistencia";
         }
 
@@ -153,10 +168,10 @@
             "NO_ASISTE"
         ) {
 
-            rsvpDeclineButton.disabled =
+            declineButton.disabled =
                 true;
 
-            rsvpDeclineButton.textContent =
+            declineButton.textContent =
                 "Respuesta registrada";
         }
     }
@@ -268,12 +283,29 @@
 
         modalMembers.innerHTML =
             "";
+
+        modalMembersCount.style.display =
+            "none";
     }
 
 
     /* ============================
        CONFIRM ATTENDANCE
     ============================ */
+
+    function updateMembersCount() {
+
+        const selected =
+            modalMembers.querySelectorAll(
+                'input[type="checkbox"]:checked'
+            ).length;
+
+        modalMembersCount.textContent =
+            `${selected} de ${invitation.passes} asistirán`;
+
+        modalMembersCount.style.display =
+            "";
+    }
 
     function renderMembers() {
 
@@ -312,6 +344,11 @@
                         member
                     );
 
+                checkbox.addEventListener(
+                    "change",
+                    updateMembersCount
+                );
+
                 const name =
                     document.createElement("span");
 
@@ -334,6 +371,8 @@
 
         modalMembers.style.display =
             "";
+
+        updateMembersCount();
     }
 
     function showConfirmModal() {
@@ -367,6 +406,9 @@
         resetModal();
 
         modalMembers.style.display =
+            "none";
+
+        modalMembersCount.style.display =
             "none";
 
         currentAction =
