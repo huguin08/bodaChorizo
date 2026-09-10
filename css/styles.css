@@ -3195,7 +3195,7 @@ img {
             #e6d7c1 100%);
 
     box-shadow:
-        0 20px 50px rgba(20, 23, 18, 0.28);    
+        0 20px 50px rgba(20, 23, 18, 0.28);
 
     text-align: center;
 }
@@ -3537,7 +3537,6 @@ img {
         var(--color-olive-dark);
 }
 
-
 /* fila seleccionada */
 
 .rsvp-modal__member:has(input:checked) {
@@ -3546,6 +3545,24 @@ img {
 
     background:
         rgba(89, 101, 78, 0.08);
+}
+
+.rsvp-modal__members.is-locked .rsvp-modal__member {
+    cursor: default;
+}
+
+.rsvp-modal__members.is-locked .rsvp-modal__member input {
+    cursor: default;
+}
+
+.rsvp-modal__members.is-locked .rsvp-modal__member:hover {
+    transform: none;
+
+    background:
+        rgba(89, 101, 78, 0.08);
+
+    border-color:
+        rgba(89, 101, 78, 0.42);
 }
 
 

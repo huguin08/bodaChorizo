@@ -284,6 +284,10 @@
         modalMembers.innerHTML =
             "";
 
+        modalMembers.classList.remove(
+            "is-locked"
+        );
+
         modalMembersCount.style.display =
             "none";
     }
@@ -451,6 +455,21 @@
 
         modalConfirm.disabled =
             false;
+
+        modalMembers
+            .querySelectorAll(
+                'input[type="checkbox"]'
+            )
+            .forEach(
+                checkbox => {
+                    checkbox.disabled =
+                        true;
+                }
+            );
+
+        modalMembers.classList.add(
+            "is-locked"
+        );
 
 
         if (
