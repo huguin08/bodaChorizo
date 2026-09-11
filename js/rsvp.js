@@ -50,6 +50,35 @@
     const modalBody =
         document.querySelector(".rsvp-modal__body");
 
+    const modalMembers =
+        document.createElement("div");
+
+    modalMembers.className =
+        "rsvp-modal__members";
+
+    const modalMembersCount =
+        document.createElement("p");
+
+    modalMembersCount.className =
+        "rsvp-modal__members-count";
+
+    modalMembersCount.style.display =
+        "none";
+
+    modalMembers.style.display =
+        "none";
+
+    modalMessage.insertAdjacentElement(
+        "afterend",
+        modalMembers
+    );
+
+    modalMembers.insertAdjacentElement(
+        "afterend",
+        modalMembersCount
+    );
+
+
     const RSVP_DEADLINE =
         new Date(
             "2026-11-10T23:59:59-06:00"
@@ -78,7 +107,9 @@
         token: null,
         family: "",
         passes: 0,
-        status: null
+        members: [],
+        status: null,
+        attendees: []
     };
 
 
@@ -109,13 +140,13 @@
     function updateRSVPButtons() {
 
         // Estado normal por defecto
-        rsvpConfirmButton.disabled = false;
-        rsvpDeclineButton.disabled = false;
+        confirmButton.disabled = false;
+        declineButton.disabled = false;
 
-        rsvpConfirmButton.textContent =
+        confirmButton.textContent =
             "Confirmar asistencia";
 
-        rsvpDeclineButton.textContent =
+        declineButton.textContent =
             "No podremos asistir";
 
 
@@ -124,11 +155,11 @@
             "CONFIRMADO"
         ) {
 
-            rsvpConfirmButton.disabled =
-                true;
+            confirmButton.disabled =
+                false;
 
-            rsvpConfirmButton.textContent =
-                "Asistencia confirmada";
+            confirmButton.textContent =
+                "Modificar asistencia";
         }
 
 
@@ -137,10 +168,10 @@
             "NO_ASISTE"
         ) {
 
-            rsvpDeclineButton.disabled =
+            declineButton.disabled =
                 true;
 
-            rsvpDeclineButton.textContent =
+            declineButton.textContent =
                 "Respuesta registrada";
         }
     }
@@ -246,12 +277,107 @@
 
         modalConfirm.disabled =
             false;
+
+        modalMembers.style.display =
+            "none";
+
+        modalMembers.innerHTML =
+            "";
+
+        modalMembers.classList.remove(
+            "is-locked"
+        );
+
+        modalMembersCount.style.display =
+            "none";
     }
 
 
     /* ============================
        CONFIRM ATTENDANCE
     ============================ */
+
+    function updateMembersCount() {
+
+        const selected =
+            modalMembers.querySelectorAll(
+                'input[type="checkbox"]:checked'
+            ).length;
+
+        modalMembersCount.textContent =
+            `${selected} de ${invitation.passes} asistirán`;
+
+        modalMembersCount.style.display =
+            "";
+    }
+
+    function renderMembers() {
+
+        modalMembers.innerHTML = "";
+
+        if (
+            !Array.isArray(invitation.members) ||
+            invitation.members.length === 0
+        ) {
+            modalMembers.style.display =
+                "none";
+
+            return;
+        }
+
+        invitation.members.forEach(
+            (member) => {
+
+                const label =
+                    document.createElement("label");
+
+                label.className =
+                    "rsvp-modal__member";
+
+                const checkbox =
+                    document.createElement("input");
+
+                checkbox.type =
+                    "checkbox";
+
+                checkbox.value =
+                    member;
+
+                checkbox.checked =
+                    invitation.attendees.includes(
+                        member
+                    );
+
+                checkbox.addEventListener(
+                    "change",
+                    updateMembersCount
+                );
+
+                const name =
+                    document.createElement("span");
+
+                name.textContent =
+                    member;
+
+                label.appendChild(
+                    checkbox
+                );
+
+                label.appendChild(
+                    name
+                );
+
+                modalMembers.appendChild(
+                    label
+                );
+            }
+        );
+
+        modalMembers.style.display =
+            "";
+
+        updateMembersCount();
+    }
 
     function showConfirmModal() {
 
@@ -261,13 +387,15 @@
             "confirm";
 
         modalTitle.textContent =
-            "Confirmar asistencia";
+            "¿Quiénes asistirán?";
 
         modalMessage.textContent =
-            "¿Deseas confirmar tu asistencia?";
+            "Selecciona a las personas que nos acompañarán.";
 
         modalConfirm.textContent =
-            "Sí, confirmar";
+            "Guardar confirmación";
+
+        renderMembers();
 
         openModal();
     }
@@ -280,6 +408,12 @@
     function showDeclineModal() {
 
         resetModal();
+
+        modalMembers.style.display =
+            "none";
+
+        modalMembersCount.style.display =
+            "none";
 
         currentAction =
             "decline";
@@ -322,6 +456,21 @@
         modalConfirm.disabled =
             false;
 
+        modalMembers
+            .querySelectorAll(
+                'input[type="checkbox"]'
+            )
+            .forEach(
+                checkbox => {
+                    checkbox.disabled =
+                        true;
+                }
+            );
+
+        modalMembers.classList.add(
+            "is-locked"
+        );
+
 
         if (
             currentAction ===
@@ -334,8 +483,13 @@
             modalTitle.textContent =
                 "Asistencia confirmada";
 
+            const totalAttendees =
+                invitation.attendees.length;
+
             modalMessage.textContent =
-                `Hemos registrado ${invitation.passes} pases para ${invitation.family}.`;
+                totalAttendees === 1
+                    ? `Hemos registrado 1 asistente para ${invitation.family}.`
+                    : `Hemos registrado ${totalAttendees} asistentes para ${invitation.family}.`;
 
         } else {
 
@@ -355,6 +509,31 @@
     }
 
     async function saveRSVP(status) {
+
+        let selectedAttendees =
+            [];
+
+        if (status === "CONFIRMADO") {
+
+            selectedAttendees =
+                Array.from(
+                    modalMembers.querySelectorAll(
+                        'input[type="checkbox"]:checked'
+                    )
+                ).map(
+                    checkbox =>
+                        checkbox.value
+                );
+
+            if (
+                selectedAttendees.length === 0
+            ) {
+                modalMessage.textContent =
+                    "Selecciona al menos una persona que asistirá.";
+
+                return;
+            }
+        }
 
         try {
 
@@ -380,7 +559,10 @@
                                 invitation.token,
 
                             estado:
-                                status
+                                status,
+
+                            asistentes:
+                                selectedAttendees
                         })
                     }
                 );
@@ -399,6 +581,10 @@
 
             invitation.status =
                 data.estado;
+
+            invitation.attendees =
+                data.asistentes ||
+                selectedAttendees;
 
             updateRSVPButtons();
 

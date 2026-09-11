@@ -30,14 +30,15 @@ export async function handler(event) {
                 ]
             });
 
-
         const sheets =
             google.sheets({
                 version: "v4",
                 auth
             });
 
-
+        /*
+         * Buscar invitación
+         */
         const response =
             await sheets.spreadsheets.values.get({
                 spreadsheetId:
@@ -47,17 +48,14 @@ export async function handler(event) {
                     "Invitados!A2:D"
             });
 
-
         const rows =
             response.data.values || [];
-
 
         const invitation =
             rows.find(
                 row =>
                     row[0] === token
             );
-
 
         if (!invitation) {
             return {
@@ -69,14 +67,12 @@ export async function handler(event) {
             };
         }
 
-
         const [
             sheetToken,
             familia,
             pases,
             activo
         ] = invitation;
-
 
         if (activo !== "SI") {
             return {
@@ -88,19 +84,47 @@ export async function handler(event) {
             };
         }
 
+        /*
+         * Obtener integrantes de la familia
+         */
+        const membersResponse =
+            await sheets.spreadsheets.values.get({
+                spreadsheetId:
+                    process.env.GOOGLE_SHEET_ID,
+
+                range:
+                    "Integrantes!A2:B"
+            });
+
+        const memberRows =
+            membersResponse.data.values || [];
+
+        const integrantes =
+            memberRows
+                .filter(
+                    row =>
+                        row[0] === token
+                )
+                .map(
+                    row =>
+                        row[1]
+                )
+                .filter(Boolean);
+
+        /*
+         * Buscar confirmación existente
+         */
         const confirmationsResponse =
             await sheets.spreadsheets.values.get({
                 spreadsheetId:
                     process.env.GOOGLE_SHEET_ID,
 
                 range:
-                    "Confirmaciones!A2:E"
+                    "Confirmaciones!A2:F"
             });
-
 
         const confirmationRows =
             confirmationsResponse.data.values || [];
-
 
         const confirmation =
             confirmationRows.find(
@@ -108,12 +132,36 @@ export async function handler(event) {
                     row[0] === token
             );
 
+        let asistentes = [];
+        let estado = null;
 
-        const estado =
-            confirmation
-                ? confirmation[3]
-                : null;
+        if (confirmation) {
+            const asistentesRaw =
+                confirmation[3];
 
+            estado =
+                confirmation[4] || null;
+
+            if (asistentesRaw) {
+                try {
+                    asistentes =
+                        JSON.parse(
+                            asistentesRaw
+                        );
+
+                    if (!Array.isArray(asistentes)) {
+                        asistentes = [];
+                    }
+                } catch (error) {
+                    console.warn(
+                        "No fue posible interpretar asistentes:",
+                        error
+                    );
+
+                    asistentes = [];
+                }
+            }
+        }
 
         return {
             statusCode: 200,
@@ -128,7 +176,9 @@ export async function handler(event) {
                 familia,
                 pases:
                     Number(pases),
-                estado
+                integrantes,
+                estado,
+                asistentes
             })
         };
 
@@ -138,7 +188,6 @@ export async function handler(event) {
             "Error getInvitation:",
             error
         );
-
 
         return {
             statusCode: 500,
