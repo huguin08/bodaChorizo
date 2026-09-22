@@ -2257,6 +2257,375 @@ img {
 }
 
 /* ============================
+   ITINERARY SECTION
+============================ */
+
+.itinerary-section {
+    position: relative;
+
+    min-height: 100vh;
+
+    padding:
+        64px var(--section-padding-x) 72px;
+
+    background:
+        linear-gradient(180deg,
+            #68705a 0%,
+            #5d654f 100%);
+
+    color: #f6f1e7;
+
+    overflow: hidden;
+}
+
+.itinerary-section__content {
+
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 380px;
+
+    margin: 0 auto;
+
+    text-align: center;
+}
+
+/* ============================
+   ITINERARY BOTANICALS
+============================ */
+
+.itinerary-section__botanical {
+    position: absolute;
+
+    display: block;
+
+    height: auto;
+
+    pointer-events: none;
+
+    user-select: none;
+
+    z-index: 0;
+}
+
+
+/* Rama superior izquierda */
+
+.itinerary-section__botanical--top {
+    top: -10px;
+    left: -5px;
+
+    width: 201px;
+}
+
+
+/* Rama inferior derecha */
+
+.itinerary-section__botanical--bottom {
+    right: -6px;
+    bottom: -11px;
+
+    width: 234px;
+}
+
+
+
+/* ============================
+   ITINERARY HEADER
+============================ */
+
+.itinerary-section__header {
+    margin-bottom: 20px;
+}
+
+.itinerary-section__eyebrow {
+    margin: 0 0 6px;
+
+    font-family:
+        var(--font-body);
+
+    font-size: 11px;
+
+    font-weight: 500;
+
+    text-transform: uppercase;
+
+    letter-spacing: 4px;
+
+    color: #e0c27c;
+}
+
+.itinerary-section__title {
+    margin: 0;
+
+    font-family:
+        var(--font-script);
+
+    font-size: 64px;
+
+    font-weight: 400;
+
+    line-height: 1;
+
+    color: #f7f2e8;
+}
+
+.itinerary-section__ornament {
+    width: 150px;
+
+    margin:
+        22px auto 18px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 10px;
+
+    color: #e0c27c;
+}
+
+.itinerary-section__ornament span {
+    flex: 1;
+
+    height: 1px;
+
+    background:
+        linear-gradient(90deg,
+            transparent,
+            #d9bd7d);
+}
+
+.itinerary-section__ornament span:last-child {
+    transform: rotate(180deg);
+}
+
+.itinerary-section__ornament i {
+    font-size: 7px;
+
+    font-style: normal;
+}
+
+.itinerary-section__subtitle {
+    margin: 0;
+
+    font-family:
+        var(--font-display);
+
+    font-size: 18px;
+
+    font-weight: 400;
+
+    letter-spacing: 0.6px;
+
+    color: #f4ecdf;
+}
+
+
+/* ============================
+   ITINERARY TIMELINE
+============================ */
+
+.itinerary-timeline {
+    position: relative;
+
+    width: 100%;
+
+    margin: 0 auto;
+
+    padding:
+        4px 0;
+}
+
+
+/* Línea vertical */
+
+.itinerary-timeline::before {
+    content: "";
+
+    position: absolute;
+
+    top: 25px;
+    bottom: 25px;
+
+    left: 96px;
+
+    width: 1px;
+
+    background:
+        linear-gradient(180deg,
+            transparent 0%,
+            rgba(224, 194, 124, 0.75) 8%,
+            rgba(224, 194, 124, 0.75) 92%,
+            transparent 100%);
+}
+
+
+/* ============================
+   ITINERARY ITEM
+============================ */
+
+.itinerary-item {
+    position: relative;
+
+    min-height: 98px;
+
+    display: grid;
+
+    grid-template-columns:
+        64px 64px 1fr;
+
+    align-items: center;
+
+    text-align: left;
+}
+
+
+/* Horario */
+
+.itinerary-item__time {
+    grid-column: 1;
+
+    font-family:
+        var(--font-display);
+
+    font-size: 16px;
+
+    font-weight: 500;
+
+    line-height: 1;
+
+    text-align: right;
+
+    color: #e0c27c;
+}
+
+
+/* Icono / nodo */
+
+.itinerary-item__icon {
+    position: relative;
+
+    z-index: 2;
+
+    grid-column: 2;
+
+    width: 58px;
+    height: 58px;
+
+    margin: 0 auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    /*background: #626a54;*/
+}
+
+.itinerary-item__icon-image {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+
+    user-select: none;
+    pointer-events: none;
+}
+
+
+/* Información */
+
+.itinerary-item__content {
+    grid-column: 3;
+
+    padding-left: 12px;
+}
+
+.itinerary-item__title {
+    margin: 0;
+
+    font-family:
+        var(--font-display);
+
+    font-size: 20px;
+
+    font-weight: 400;
+
+    line-height: 1.15;
+
+    color:
+        #f7f2e8;
+}
+
+
+/* ============================
+   ITINERARY FOOTER
+============================ */
+
+.itinerary-section__footer {
+    width: 150px;
+
+    margin:
+        40px auto 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 10px;
+
+    color:
+        #e0c27c;
+}
+
+.itinerary-section__footer span {
+    flex: 1;
+
+    height: 1px;
+
+    background:
+        linear-gradient(90deg,
+            transparent,
+            #d9bd7d);
+}
+
+.itinerary-section__footer span:last-child {
+    transform: rotate(180deg);
+}
+
+.itinerary-section__footer i {
+    font-style: normal;
+
+    font-size: 17px;
+}
+
+
+/* ============================
+   ITINERARY RESPONSIVE
+============================ */
+
+@media (max-width: 380px) {
+
+    .itinerary-section__title {
+        font-size: 58px;
+    }
+
+    .itinerary-item__time {
+        font-size: 14px;
+    }
+
+    .itinerary-item__content {
+        padding-left: 10px;
+    }
+
+    .itinerary-item__title {
+        font-size: 18px;
+    }
+}
+
+/* ============================
    DRESS CODE SECTION
 ============================ */
 
