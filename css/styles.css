@@ -4165,13 +4165,15 @@ img {
     }
 
     .save-date-scene__photo--left {
-        top: 215px;
-        left: 48px;
+        top: 185px;
+        left: 43px;
+        transform: rotate(-9deg);
     }
 
     .save-date-scene__photo--right {
-        top: 215px;
-        right: 48px;
+        top: 185px;
+        right: 43px;
+        transform: rotate(9deg);
     }
 
     .save-date-scene__asset--envelope-back,
