@@ -3596,19 +3596,31 @@ img {
 ============================ */
 
 .rsvp-section__note {
-    max-width: 280px;
-
+    max-width: 300px;
     margin: 28px auto 0;
 
     font-family: var(--font-body);
+    font-size: 10px;
+    font-weight: 400;
+    line-height: 1.5;
+    letter-spacing: 0.4px;
 
-    font-size: 9px;
-    font-weight: 300;
+    color: #9b8974;
+    text-align: center;
+}
 
-    line-height: 1.6;
-    letter-spacing: 0.6px;
 
-    color: var(--color-text-muted);
+.rsvp-section__note strong {
+    display: block;
+
+    margin-top: 4px;
+
+    font-size: 13px;
+    font-weight: 600;
+
+    letter-spacing: 1.2px;
+
+    color: #9a6f2c;
 }
 
 .rsvp-section__footer {
