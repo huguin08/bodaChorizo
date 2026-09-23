@@ -13,7 +13,8 @@
 
     <meta property="og:description" content="12 de diciembre de 2026" />
 
-    <meta property="og:image" content="https://boda-maluygibran.netlify.app/assets/images/wedding/social-preview.jpeg" />
+    <meta property="og:image"
+        content="https://boda-maluygibran.netlify.app/assets/images/wedding/social-preview.jpeg" />
 
     <meta property="og:image:alt" content="Invitación de boda de Malú y Gibran" />
 
@@ -243,26 +244,37 @@
                 <!-- Composición decorativa -->
                 <div class="save-date-scene">
 
+                    <!-- Parte trasera / interior del sobre -->
+                    <img src="./assets/images/wedding/save-date-envelope-back.png"
+                        class="save-date-scene__asset save-date-scene__asset--envelope-back" alt="" />
+
+                    <!-- CARTA CENTRAL -->
                     <img src="./assets/images/wedding/save-date-card.png"
                         class="save-date-scene__asset save-date-scene__asset--card" alt="" />
 
-                    <img src="./assets/images/wedding/save-date-photo-left.png"
-                        class="save-date-scene__asset save-date-scene__asset--photo-left" alt="" />
+                    <!-- Fotografía izquierda -->
+                    <div class="save-date-scene__photo save-date-scene__photo--left">
+                        <img src="./assets/images/photos/save-date-left.jpeg" class="save-date-scene__photo-image"
+                            alt="" />
+                    </div>
 
-                    <img src="./assets/images/wedding/save-date-photo-right.png"
-                        class="save-date-scene__asset save-date-scene__asset--photo-right" alt="" />
+                    <!-- Fotografía derecha -->
+                    <div class="save-date-scene__photo save-date-scene__photo--right">
+                        <img src="./assets/images/photos/save-date-right.jpeg" class="save-date-scene__photo-image"
+                            alt="" />
+                    </div>
 
-                    <!-- Sobre completo: queda detrás de carta y fotos -->
-                    <img src="./assets/images/wedding/save-date-envelope.png"
-                        class="save-date-scene__asset save-date-scene__asset--envelope-back" alt="" />
-
-                    <!-- Frente del sobre: tapa la parte inferior de carta y fotos -->
-                    <img src="./assets/images/wedding/save-date-envelope.png"
+                    <!-- Parte frontal del sobre -->
+                    <img src="./assets/images/wedding/save-date-envelope-front.png"
                         class="save-date-scene__asset save-date-scene__asset--envelope-front" alt="" />
 
-                    <!-- Sello -->
-                    <img src="./assets/images/wedding/save-date-seal.png"
-                        class="save-date-scene__asset save-date-scene__asset--seal" alt="" />
+                    <!-- Sobre completo: queda detrás de carta y fotos
+                    <img src="./assets/images/wedding/save-date-envelope.png"
+                        class="save-date-scene__asset save-date-scene__asset--envelope-back" alt="" /> 
+
+                    Frente del sobre: tapa la parte inferior de carta y fotos 
+                    <img src="./assets/images/wedding/save-date-envelope.png"
+                        class="save-date-scene__asset save-date-scene__asset--envelope-front" alt="" /> -->                    
 
                     <!-- Botánico inferior izquierdo -->
                     <div class="save-date-scene__botanical save-date-scene__botanical--left" aria-hidden="true">
@@ -546,6 +558,181 @@
                     </div>
 
                 </article>
+
+            </div>
+
+        </section>
+
+        <!-- MODULO DE ITINERARIO -->
+
+        <section class="itinerary-section" id="itinerary">
+
+            <!-- Decoración botánica -->
+
+            <img src="./assets/images/wedding/welcome-botanical-top-left.png" alt=""
+                class="itinerary-section__botanical itinerary-section__botanical--top" aria-hidden="true">
+
+            <img src="./assets/images/wedding/welcome-botanical-bottom-right.png" alt=""
+                class="itinerary-section__botanical itinerary-section__botanical--bottom" aria-hidden="true">
+
+            <div class="itinerary-section__content">
+
+                <header class="itinerary-section__header">
+
+                    <p class="itinerary-section__eyebrow">
+                        Nuestro gran día
+                    </p>
+
+                    <h2 class="itinerary-section__title">
+                        Itinerario
+                    </h2>
+
+                    <div class="itinerary-section__ornament" aria-hidden="true">
+                        <span></span>
+                        <i>◆</i>
+                        <span></span>
+                    </div>
+
+                    <p class="itinerary-section__subtitle">
+                        Celebremos cada momento juntos
+                    </p>
+
+                </header>
+
+
+                <div class="itinerary-timeline">
+
+                    <article class="itinerary-item">
+                        <div class="itinerary-item__icon" aria-hidden="true">
+                            <img src="./assets/images/itinerary/ceremony.png" class="itinerary-item__icon-image"
+                                alt="" />
+                        </div>
+
+                        <div class="itinerary-item__content">
+                            <time class="itinerary-item__time">
+                                3:00 PM
+                            </time>
+
+                            <h3 class="itinerary-item__title">
+                                Misa
+                            </h3>
+                        </div>
+                    </article>
+
+
+                    <article class="itinerary-item">
+                        <div class="itinerary-item__icon" aria-hidden="true">
+                            <img src="./assets/images/itinerary/reception.png" class="itinerary-item__icon-image"
+                                alt="" />
+                        </div>
+
+                        <div class="itinerary-item__content">
+                            <time class="itinerary-item__time">
+                                5:00 PM
+                            </time>
+
+                            <h3 class="itinerary-item__title">
+                                Recepción
+                            </h3>
+                        </div>
+                    </article>
+
+
+                    <article class="itinerary-item">
+                        <div class="itinerary-item__icon" aria-hidden="true">
+                            <img src="./assets/images/itinerary/couple-arrival.png" class="itinerary-item__icon-image"
+                                alt="" />
+                        </div>
+
+                        <div class="itinerary-item__content">
+                            <time class="itinerary-item__time">
+                                5:30 PM
+                            </time>
+
+                            <h3 class="itinerary-item__title">
+                                Llegada de los novios
+                            </h3>
+                        </div>
+                    </article>
+
+
+                    <article class="itinerary-item">
+                        <div class="itinerary-item__icon" aria-hidden="true">
+                            <img src="./assets/images/itinerary/dinner.png" class="itinerary-item__icon-image" alt="" />
+                        </div>
+
+                        <div class="itinerary-item__content">
+                            <time class="itinerary-item__time">
+                                6:00 PM
+                            </time>
+
+                            <h3 class="itinerary-item__title">
+                                Cena
+                            </h3>
+                        </div>
+                    </article>
+
+
+                    <article class="itinerary-item">
+                        <div class="itinerary-item__icon" aria-hidden="true">
+                            <img src="./assets/images/itinerary/first-dance.png" class="itinerary-item__icon-image"
+                                alt="" />
+                        </div>
+
+                        <div class="itinerary-item__content">
+                            <time class="itinerary-item__time">
+                                7:00 PM
+                            </time>
+
+                            <h3 class="itinerary-item__title">
+                                Primer baile y apertura de pista
+                            </h3>
+                        </div>
+                    </article>
+
+
+                    <article class="itinerary-item">
+                        <div class="itinerary-item__icon" aria-hidden="true">
+                            <img src="./assets/images/itinerary/toast-cake.png" class="itinerary-item__icon-image"
+                                alt="" />
+                        </div>
+
+                        <div class="itinerary-item__content">
+                            <time class="itinerary-item__time">
+                                8:00 PM
+                            </time>
+
+                            <h3 class="itinerary-item__title">
+                                Brindis y pastel
+                            </h3>
+                        </div>
+                    </article>
+
+
+                    <article class="itinerary-item">
+                        <div class="itinerary-item__icon" aria-hidden="true">
+                            <img src="./assets/images/itinerary/party.png" class="itinerary-item__icon-image" alt="" />
+                        </div>
+
+                        <div class="itinerary-item__content">
+                            <time class="itinerary-item__time">
+                                9:00 PM
+                            </time>
+
+                            <h3 class="itinerary-item__title">
+                                Fiesta
+                            </h3>
+                        </div>
+                    </article>
+
+                </div>
+
+
+                <div class="itinerary-section__footer" aria-hidden="true">
+                    <span></span>
+                    <i>♡</i>
+                    <span></span>
+                </div>
 
             </div>
 
