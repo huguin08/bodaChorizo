@@ -1793,7 +1793,7 @@ img {
     position: relative;
 
     width: 100%;
-    height: clamp(300px, 75vw, 520px);
+    height: clamp(420px, 120vw, 560px);
 
     overflow: hidden;
 
@@ -2743,6 +2743,10 @@ img {
     position: relative;
 }
 
+.photo-transition--dresscode-adults .photo-transition__image {
+    object-position: center 30%;
+}
+
 /* Fade superior: beige → fotografía */
 .photo-transition--dresscode-adults::before {
     content: "";
@@ -3072,6 +3076,10 @@ img {
 
 .photo-transition--adults-rsvp {
     position: relative;
+}
+
+.photo-transition--adults-rsvp .photo-transition__image {
+    object-position: center 30%;
 }
 
 /* Fade superior: verde → fotografía */
