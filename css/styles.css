@@ -1316,12 +1316,17 @@ img {
     z-index: 2;
 
     left: 50%;
-    bottom: 109px;
+    bottom: 110px;
 
     width: 305px;
+    height: auto;
 
-    transform:
-        translateX(-50%);
+    transform: translateX(-50%);
+
+    object-fit: contain;
+
+    user-select: none;
+    pointer-events: none;
 }
 
 
@@ -1332,7 +1337,7 @@ img {
 .save-date-scene__asset--card {
     z-index: 3;
 
-    top: 26px;
+    top: -55px;
     left: 50%;
 
     width: 205px;
@@ -1341,40 +1346,55 @@ img {
         translateX(-50%) rotate(-2deg);
 }
 
-
 /* ============================
-   FOTO IZQUIERDA
+   FOTOs NOVIOS
 ============================ */
 
-.save-date-scene__asset--photo-left {
+.save-date-scene__photo {
+    position: absolute;
+
+    width: 118px;
+    height: 132px;
+
+    padding: 6px 6px 14px;
+
+    background: #f5efe4;
+
+    box-shadow:
+        0 7px 16px rgba(45, 48, 38, 0.18);
+
+    overflow: hidden;
+}
+
+.save-date-scene__photo-image {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    user-select: none;
+    pointer-events: none;
+}
+
+.save-date-scene__photo--left {
     z-index: 4;
 
-    top: 186px;
+    top: 174px;
     left: 48px;
 
-    width: 125px;
-
-    transform:
-        rotate(-18deg);
+    transform: rotate(-8deg);
 }
 
-
-/* ============================
-   FOTO DERECHA
-============================ */
-
-.save-date-scene__asset--photo-right {
+.save-date-scene__photo--right {
     z-index: 5;
 
-    top: 181px;
-    right: 42px;
+    top: 176px;
+    right: 47px;
 
-    width: 128px;
-
-    transform:
-        rotate(10deg);
+    transform: rotate(18deg);
 }
-
 
 /* ============================
    SOBRE - BOLSILLO FRONTAL
@@ -1387,35 +1407,16 @@ img {
     bottom: 110px;
 
     width: 305px;
+    height: auto;
 
-    transform:
-        translateX(-50%);
+    transform: translateX(-50%);
 
-    /*
-     * Mostramos únicamente la zona inferior
-     * del PNG para convertirla en el bolsillo
-     * delantero del sobre.
-     */
-    clip-path:
-        inset(48% 0 0 0);
+    object-fit: contain;
+
+    user-select: none;
+    pointer-events: none;
 }
 
-
-/* ============================
-   SELLO
-============================ */
-
-.save-date-scene__asset--seal {
-    z-index: 7;
-
-    left: 50%;
-    bottom: 168px;
-
-    width: 70px;
-
-    transform:
-        translateX(-50%);
-}
 
 /* ============================
    BOTÁNICOS INFERIORES
@@ -2639,11 +2640,11 @@ img {
 
     background:
         linear-gradient(180deg,
-            #68705a 0%,
-            #5d654f 100%);
+            #eee3d2 0%,
+            #e6d7c1 100%);
 
     color:
-        #f7f1e6;
+        var(--color-charcoal);
 
     overflow: hidden;
 }
@@ -2680,8 +2681,7 @@ img {
 
     letter-spacing: 3.8px;
 
-    color:
-        #e0c995;
+    color: var(--color-olive);
 }
 
 .dress-code-section__title {
@@ -2696,8 +2696,7 @@ img {
 
     line-height: 1;
 
-    color:
-        #f7f2e8;
+    color: var(--color-olive-dark);
 }
 
 .dress-code-section__ornament {
@@ -2753,8 +2752,7 @@ img {
 
     letter-spacing: 5px;
 
-    color:
-        #f5efe4;
+    color: var(--color-olive-dark);
 }
 
 
@@ -2825,8 +2823,7 @@ img {
 
     letter-spacing: 2.6px;
 
-    color:
-        #e0c995;
+    color: var(--color-gold);
 }
 
 .dress-code-option__main {
@@ -2842,8 +2839,7 @@ img {
 
     line-height: 1.15;
 
-    color:
-        #f7f2e8;
+    color: var(--color-olive-dark);
 }
 
 .dress-code-option__note {
@@ -2861,8 +2857,7 @@ img {
 
     letter-spacing: 0.3px;
 
-    color:
-        rgba(247, 241, 230, 0.80);
+    color: var(--color-text-muted);
 }
 
 
@@ -2922,10 +2917,10 @@ img {
 
     background:
         linear-gradient(180deg,
-            #eee3d2 0%,
-            #e6d7c1 100%);
+            #68705a 0%,
+            #5d654f 100%);
 
-    color: var(--color-charcoal);
+    color: #f7f1e6;
 
     overflow: hidden;
 }
@@ -2959,7 +2954,7 @@ img {
 
     letter-spacing: 3.5px;
 
-    color: var(--color-gold-dark);
+    color: #e0c995;
 }
 
 .adults-only-section__title {
@@ -2971,7 +2966,7 @@ img {
 
     line-height: 1;
 
-    color: var(--color-olive-dark);
+    color: #f7f2e8;
 }
 
 .adults-only-section__ornament {
@@ -3061,7 +3056,7 @@ img {
 
     letter-spacing: 0.3px;
 
-    color: var(--color-text-muted);
+    color: rgba(247, 241, 230, 0.80);
 }
 
 .adults-only-section__highlight {
@@ -3073,7 +3068,7 @@ img {
 
     line-height: 1.15;
 
-    color: var(--color-olive-dark);
+    color: #f7f2e8;
 }
 
 .adults-only-section__closing {
@@ -3087,7 +3082,7 @@ img {
 
     letter-spacing: 2.6px;
 
-    color: var(--color-gold-dark);
+    color: #e0c995;
 }
 
 
@@ -3143,10 +3138,11 @@ img {
 
     background:
         linear-gradient(180deg,
-            #68705a 0%,
-            #5d654f 100%);
+            #eee3d2 0%,
+            #e6d7c1 100%);
 
-    color: #f7f1e6;
+    color:
+        var(--color-charcoal);
 
     overflow: hidden;
 }
@@ -3180,7 +3176,7 @@ img {
 
     letter-spacing: 3.5px;
 
-    color: #e0c995;
+    color: var(--color-gold-dark);
 }
 
 .rsvp-section__title {
@@ -3194,7 +3190,7 @@ img {
 
     line-height: 0.95;
 
-    color: #f7f2e8;
+    color: var(--color-olive-dark);
 }
 
 .rsvp-section__ornament {
@@ -3241,15 +3237,15 @@ img {
         34px 24px 36px;
 
     border:
-        1px solid rgba(237, 218, 178, 0.35);
+        1px solid rgba(89, 101, 78, 0.22);
 
     border-radius: 4px;
 
     background:
-        rgba(255, 255, 255, 0.07);
+        rgba(255, 255, 255, 0.24);
 
     box-shadow:
-        0 12px 30px rgba(31, 35, 27, 0.14);
+        0 12px 30px rgba(55, 60, 45, 0.08);
 }
 
 .rsvp-card__label {
@@ -3260,11 +3256,9 @@ img {
     font-weight: 500;
 
     text-transform: uppercase;
-
     letter-spacing: 2.8px;
 
-    color:
-        rgba(247, 241, 230, 0.72);
+    color: var(--color-gold-dark);
 }
 
 .rsvp-card__family {
@@ -3273,10 +3267,9 @@ img {
     font-family: var(--font-display);
     font-size: 28px;
     font-weight: 500;
-
     line-height: 1.1;
 
-    color: #f7f2e8;
+    color: var(--color-olive-dark);
 }
 
 
@@ -3295,11 +3288,11 @@ img {
 
 .rsvp-card__passes-number {
     font-family: var(--font-script);
-    font-size: 72px;
 
+    font-size: 72px;
     line-height: 0.9;
 
-    color: #e0c995;
+    color: var(--color-gold-dark);
 }
 
 .rsvp-card__passes-label {
@@ -3310,11 +3303,11 @@ img {
     font-weight: 500;
 
     text-transform: uppercase;
-
     letter-spacing: 2.5px;
 
-    color: #f7f1e6;
+    color: var(--color-olive-dark);
 }
+
 
 
 /* ============================
@@ -3331,11 +3324,9 @@ img {
     font-weight: 300;
 
     line-height: 1.65;
-
     letter-spacing: 0.3px;
 
-    color:
-        rgba(247, 241, 230, 0.82);
+    color: var(--color-text-muted);
 }
 
 
@@ -3382,32 +3373,29 @@ img {
 }
 
 .rsvp-card__button--confirm {
-    border: 1px solid #d9bd7d;
+    border: 1px solid var(--color-olive);
+    background: var(--color-olive);
 
-    background: #d9bd7d;
-
-    color: #4f5a45;
+    color: #f7f1e6;
 }
 
 .rsvp-card__button--confirm:hover {
-    background: #e5cf9b;
+    background: var(--color-olive-dark);
 }
 
 .rsvp-card__button--decline {
     border:
-        1px solid rgba(247, 241, 230, 0.42);
+        1px solid rgba(89, 101, 78, 0.38);
 
     background: transparent;
 
-    color:
-        rgba(247, 241, 230, 0.82);
+    color: var(--color-olive-dark);
 }
 
 .rsvp-card__button--decline:hover {
     background:
-        rgba(255, 255, 255, 0.08);
+        rgba(89, 101, 78, 0.08);
 }
-
 
 /* ============================
    NOTE + FOOTER
@@ -3419,15 +3407,14 @@ img {
     margin: 28px auto 0;
 
     font-family: var(--font-body);
+
     font-size: 9px;
     font-weight: 300;
 
     line-height: 1.6;
-
     letter-spacing: 0.6px;
 
-    color:
-        rgba(247, 241, 230, 0.68);
+    color: var(--color-text-muted);
 }
 
 .rsvp-section__footer {
@@ -4171,9 +4158,20 @@ img {
         width: 190px;
     }
 
-    .save-date-scene__asset--photo-left,
-    .save-date-scene__asset--photo-right {
-        width: 112px;
+    .save-date-scene__photo {
+        width: 108px;
+        height: 122px;
+        padding: 5px 5px 13px;
+    }
+
+    .save-date-scene__photo--left {
+        top: 215px;
+        left: 48px;
+    }
+
+    .save-date-scene__photo--right {
+        top: 215px;
+        right: 48px;
     }
 
     .save-date-scene__asset--envelope-back,
